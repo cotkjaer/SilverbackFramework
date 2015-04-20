@@ -10,22 +10,46 @@ import CoreGraphics
 
 // MARK: - CGFloat
 
-func isEqual(f1:CGFloat, to f2:CGFloat, precision:CGFloat) -> Bool
+extension CGFloat
 {
-    return abs(f1-f2) < abs(precision)
+    public func isEqualWithin(precision: CGFloat, to: CGFloat) -> Bool
+    {
+        return abs(self - to) < abs(precision)
+    }
 }
 
-public func * (float: CGFloat, int: Int) -> CGFloat
+public func equalsWithin(precision: CGFloat, f1: CGFloat, to f2: CGFloat) -> Bool
 {
-    return CGFloat(int) * float
+    return abs(f1 - f2) < abs(precision)
 }
 
-public func * (int: Int, float: CGFloat) -> CGFloat
+public func * (rhs: CGFloat, lhs: Int) -> CGFloat
 {
-    return CGFloat(int) * float
+    return rhs * CGFloat(lhs)
 }
 
-public func *= (inout float: CGFloat, int: Int)
+public func * (rhs: Int, lhs: CGFloat) -> CGFloat
 {
-    float *= CGFloat(int)
+    return CGFloat(rhs) * lhs
 }
+
+public func += (inout rhs: CGFloat, lhs: Int)
+{
+    rhs += CGFloat(lhs)
+}
+
+public func -= (inout rhs: CGFloat, lhs: Int)
+{
+    rhs += CGFloat(lhs)
+}
+
+public func *= (inout rhs: CGFloat, lhs: Int)
+{
+    rhs *= CGFloat(lhs)
+}
+
+public func /= (inout rhs: CGFloat, lhs: Int)
+{
+    rhs /= CGFloat(lhs)
+}
+

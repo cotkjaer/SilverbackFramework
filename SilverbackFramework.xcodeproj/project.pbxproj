@@ -10,6 +10,32 @@
 		8F040C421AE4DF1B00A3411D /* SilverbackFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F040C411AE4DF1B00A3411D /* SilverbackFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F040C481AE4DF1B00A3411D /* SilverbackFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F040C3C1AE4DF1B00A3411D /* SilverbackFramework.framework */; };
 		8F040C4F1AE4DF1B00A3411D /* SilverbackFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F040C4E1AE4DF1B00A3411D /* SilverbackFrameworkTests.swift */; };
+		8F040C591AE4E1A700A3411D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F040C581AE4E1A700A3411D /* UIColor.swift */; };
+		8F040C5B1AE4E26000A3411D /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F040C5A1AE4E26000A3411D /* Random.swift */; };
+		8F040C5D1AE4E37A00A3411D /* RandomTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F040C5C1AE4E37A00A3411D /* RandomTest.swift */; };
+		8FDB8EEF1AE4E73C00D17087 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EEE1AE4E73C00D17087 /* CGFloat.swift */; };
+		8FDB8EF11AE4E95000D17087 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EF01AE4E95000D17087 /* CGPoint.swift */; };
+		8FDB8EF31AE4EC2000D17087 /* CGVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EF21AE4EC2000D17087 /* CGVector.swift */; };
+		8FDB8EF71AE4EC4200D17087 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 8FDB8EF41AE4EC4200D17087 /* LICENSE */; };
+		8FDB8EF91AE4EC4200D17087 /* SilverbackFramework.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8FDB8EF61AE4EC4200D17087 /* SilverbackFramework.podspec */; };
+		8FDB8EFB1AE4ED6600D17087 /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EFA1AE4ED6600D17087 /* CGSize.swift */; };
+		8FDB8EFD1AE4EDE400D17087 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EFC1AE4EDE400D17087 /* CGRect.swift */; };
+		8FDB8EFF1AE4EE1A00D17087 /* CGAffineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EFE1AE4EE1A00D17087 /* CGAffineTransform.swift */; };
+		8FDB8F011AE4EF3D00D17087 /* CGFloatTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8F001AE4EF3D00D17087 /* CGFloatTest.swift */; };
+		8FDB8F031AE4F11D00D17087 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8F021AE4F11D00D17087 /* Float.swift */; };
+		8FDB8F051AE4F35E00D17087 /* FloatTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8F041AE4F35E00D17087 /* FloatTest.swift */; };
+		8FDB8F061AE4F3D300D17087 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EEE1AE4E73C00D17087 /* CGFloat.swift */; };
+		8FDB8F071AE4F3D600D17087 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EF01AE4E95000D17087 /* CGPoint.swift */; };
+		8FDB8F081AE4F3D900D17087 /* CGVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EF21AE4EC2000D17087 /* CGVector.swift */; };
+		8FDB8F091AE4F3DC00D17087 /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EFA1AE4ED6600D17087 /* CGSize.swift */; };
+		8FDB8F0A1AE4F3DF00D17087 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EFC1AE4EDE400D17087 /* CGRect.swift */; };
+		8FDB8F0B1AE4F3E200D17087 /* CGAffineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EFE1AE4EE1A00D17087 /* CGAffineTransform.swift */; };
+		8FDB8F0C1AE4F3E700D17087 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F040C581AE4E1A700A3411D /* UIColor.swift */; };
+		8FDB8F0D1AE4F3E900D17087 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F040C5A1AE4E26000A3411D /* Random.swift */; };
+		8FDB8F0E1AE4F3ED00D17087 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8F021AE4F11D00D17087 /* Float.swift */; };
+		8FDB8F0F1AE4F8BE00D17087 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 8FDB8EF51AE4EC4200D17087 /* README.md */; };
+		8FDB8F111AE4F9C300D17087 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8F101AE4F9C300D17087 /* CALayer.swift */; };
+		8FDB8F121AE4F9C600D17087 /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8F101AE4F9C300D17087 /* CALayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +55,22 @@
 		8F040C471AE4DF1B00A3411D /* SilverbackFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SilverbackFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F040C4D1AE4DF1B00A3411D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F040C4E1AE4DF1B00A3411D /* SilverbackFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilverbackFrameworkTests.swift; sourceTree = "<group>"; };
+		8F040C581AE4E1A700A3411D /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		8F040C5A1AE4E26000A3411D /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		8F040C5C1AE4E37A00A3411D /* RandomTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomTest.swift; sourceTree = "<group>"; };
+		8FDB8EEE1AE4E73C00D17087 /* CGFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
+		8FDB8EF01AE4E95000D17087 /* CGPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
+		8FDB8EF21AE4EC2000D17087 /* CGVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGVector.swift; sourceTree = "<group>"; };
+		8FDB8EF41AE4EC4200D17087 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		8FDB8EF51AE4EC4200D17087 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8FDB8EF61AE4EC4200D17087 /* SilverbackFramework.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SilverbackFramework.podspec; sourceTree = "<group>"; };
+		8FDB8EFA1AE4ED6600D17087 /* CGSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
+		8FDB8EFC1AE4EDE400D17087 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
+		8FDB8EFE1AE4EE1A00D17087 /* CGAffineTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAffineTransform.swift; sourceTree = "<group>"; };
+		8FDB8F001AE4EF3D00D17087 /* CGFloatTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatTest.swift; sourceTree = "<group>"; };
+		8FDB8F021AE4F11D00D17087 /* Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
+		8FDB8F041AE4F35E00D17087 /* FloatTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatTest.swift; sourceTree = "<group>"; };
+		8FDB8F101AE4F9C300D17087 /* CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +95,9 @@
 		8F040C321AE4DF1B00A3411D = {
 			isa = PBXGroup;
 			children = (
+				8FDB8EF41AE4EC4200D17087 /* LICENSE */,
+				8FDB8EF51AE4EC4200D17087 /* README.md */,
+				8FDB8EF61AE4EC4200D17087 /* SilverbackFramework.podspec */,
 				8F040C3E1AE4DF1B00A3411D /* SilverbackFramework */,
 				8F040C4B1AE4DF1B00A3411D /* SilverbackFrameworkTests */,
 				8F040C3D1AE4DF1B00A3411D /* Products */,
@@ -71,8 +116,18 @@
 		8F040C3E1AE4DF1B00A3411D /* SilverbackFramework */ = {
 			isa = PBXGroup;
 			children = (
+				8FDB8EEE1AE4E73C00D17087 /* CGFloat.swift */,
+				8FDB8EF01AE4E95000D17087 /* CGPoint.swift */,
+				8FDB8EF21AE4EC2000D17087 /* CGVector.swift */,
+				8FDB8EFA1AE4ED6600D17087 /* CGSize.swift */,
+				8FDB8EFC1AE4EDE400D17087 /* CGRect.swift */,
+				8FDB8EFE1AE4EE1A00D17087 /* CGAffineTransform.swift */,
 				8F040C411AE4DF1B00A3411D /* SilverbackFramework.h */,
 				8F040C3F1AE4DF1B00A3411D /* Supporting Files */,
+				8F040C581AE4E1A700A3411D /* UIColor.swift */,
+				8F040C5A1AE4E26000A3411D /* Random.swift */,
+				8FDB8F021AE4F11D00D17087 /* Float.swift */,
+				8FDB8F101AE4F9C300D17087 /* CALayer.swift */,
 			);
 			path = SilverbackFramework;
 			sourceTree = "<group>";
@@ -90,6 +145,9 @@
 			children = (
 				8F040C4E1AE4DF1B00A3411D /* SilverbackFrameworkTests.swift */,
 				8F040C4C1AE4DF1B00A3411D /* Supporting Files */,
+				8F040C5C1AE4E37A00A3411D /* RandomTest.swift */,
+				8FDB8F001AE4EF3D00D17087 /* CGFloatTest.swift */,
+				8FDB8F041AE4F35E00D17087 /* FloatTest.swift */,
 			);
 			path = SilverbackFrameworkTests;
 			sourceTree = "<group>";
@@ -192,6 +250,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FDB8F0F1AE4F8BE00D17087 /* README.md in Resources */,
+				8FDB8EF71AE4EC4200D17087 /* LICENSE in Resources */,
+				8FDB8EF91AE4EC4200D17087 /* SilverbackFramework.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +270,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FDB8EFF1AE4EE1A00D17087 /* CGAffineTransform.swift in Sources */,
+				8FDB8EF11AE4E95000D17087 /* CGPoint.swift in Sources */,
+				8FDB8EEF1AE4E73C00D17087 /* CGFloat.swift in Sources */,
+				8FDB8EFB1AE4ED6600D17087 /* CGSize.swift in Sources */,
+				8FDB8EF31AE4EC2000D17087 /* CGVector.swift in Sources */,
+				8FDB8F031AE4F11D00D17087 /* Float.swift in Sources */,
+				8F040C5B1AE4E26000A3411D /* Random.swift in Sources */,
+				8F040C591AE4E1A700A3411D /* UIColor.swift in Sources */,
+				8FDB8EFD1AE4EDE400D17087 /* CGRect.swift in Sources */,
+				8FDB8F111AE4F9C300D17087 /* CALayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +287,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FDB8F061AE4F3D300D17087 /* CGFloat.swift in Sources */,
+				8FDB8F051AE4F35E00D17087 /* FloatTest.swift in Sources */,
+				8FDB8F081AE4F3D900D17087 /* CGVector.swift in Sources */,
+				8F040C5D1AE4E37A00A3411D /* RandomTest.swift in Sources */,
+				8FDB8F091AE4F3DC00D17087 /* CGSize.swift in Sources */,
 				8F040C4F1AE4DF1B00A3411D /* SilverbackFrameworkTests.swift in Sources */,
+				8FDB8F071AE4F3D600D17087 /* CGPoint.swift in Sources */,
+				8FDB8F0C1AE4F3E700D17087 /* UIColor.swift in Sources */,
+				8FDB8F0D1AE4F3E900D17087 /* Random.swift in Sources */,
+				8FDB8F0E1AE4F3ED00D17087 /* Float.swift in Sources */,
+				8FDB8F0B1AE4F3E200D17087 /* CGAffineTransform.swift in Sources */,
+				8FDB8F121AE4F9C600D17087 /* CALayer.swift in Sources */,
+				8FDB8F0A1AE4F3DF00D17087 /* CGRect.swift in Sources */,
+				8FDB8F011AE4EF3D00D17087 /* CGFloatTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +407,7 @@
 		8F040C531AE4DF1B00A3411D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -332,12 +417,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		8F040C541AE4DF1B00A3411D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -399,6 +486,7 @@
 				8F040C541AE4DF1B00A3411D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8F040C551AE4DF1B00A3411D /* Build configuration list for PBXNativeTarget "SilverbackFrameworkTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +495,7 @@
 				8F040C571AE4DF1B00A3411D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
