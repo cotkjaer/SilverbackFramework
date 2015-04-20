@@ -37,6 +37,14 @@ extension CGPoint
         return sqrt(pow(x - point.x, 2) + pow(y - point.y, 2))
     }
     
+
+    // MARK: distance
+
+    public func midWayTo(p2:CGPoint) -> CGPoint
+    {
+        return CGPoint((self.x + p2.x) / 2.0, (self.y + p2.y) / 2.0)
+    }
+    
     // MARK: rotation
     
     /// angle is in radians
@@ -53,7 +61,7 @@ extension CGPoint
     }
 }
 
-func rotate(point p1:CGPoint, radians: CGFloat, around p2:CGPoint) -> CGPoint
+public func rotate(point p1:CGPoint, radians: CGFloat, around p2:CGPoint) -> CGPoint
 {
     let sinTheta = sin(radians)
     let cosTheta = cos(radians)
@@ -66,13 +74,12 @@ func rotate(point p1:CGPoint, radians: CGFloat, around p2:CGPoint) -> CGPoint
 
 }
 
-
-func distanceFrom(p1:CGPoint, to p2:CGPoint) -> CGFloat
+public func distanceFrom(p1:CGPoint, to p2:CGPoint) -> CGFloat
 {
     return sqrt(pow((p2.x - p1.x), 2) + pow((p2.y - p1.y), 2))
 }
 
-func midPoint(between p1:CGPoint, and p2:CGPoint) -> CGPoint
+public func midPoint(between p1:CGPoint, and p2:CGPoint) -> CGPoint
 {
     return CGPoint((p1.x + p2.x) / 2.0, (p1.y + p2.y) / 2.0)
 }
@@ -82,7 +89,7 @@ func midPoint(between p1:CGPoint, and p2:CGPoint) -> CGPoint
 
 extension CGPoint: Equatable
 {
-    func isEqualTo(point: CGPoint, withPrecision precision:CGFloat) -> Bool
+    public func isEqualTo(point: CGPoint, withPrecision precision:CGFloat) -> Bool
     {
         return  distanceTo(point) < abs(precision)
     }
@@ -98,7 +105,7 @@ public func == (p1: CGPoint, p2: CGPoint) -> Bool
     return p1.x == p2.x && p1.y == p2.y
 }
 
-func isEqual(p1: CGPoint, p2: CGPoint, withPrecision precision:CGFloat) -> Bool
+public func isEqual(p1: CGPoint, p2: CGPoint, withPrecision precision:CGFloat) -> Bool
 {
     return distanceFrom(p1, to:p2) < abs(precision)
 }
