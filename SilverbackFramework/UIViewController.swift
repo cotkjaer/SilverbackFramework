@@ -10,6 +10,26 @@ import UIKit
 
 typealias AlertActionHandler = (UIAlertAction!) -> (Void)
 
+public func presentError(error: NSError?, inController controller:UIViewController, animated: Bool, completion: (() -> Void)?, handler errorHandler: (() -> Void)?) -> Bool
+{
+    if error != nil
+    {
+        let alertController = UIAlertController(title: error!.localizedDescription, message: error!.localizedRecoverySuggestion, preferredStyle: .Alert)
+        
+        let wrappedHandler: AlertActionHandler = { (alertAction: UIAlertAction!) in if errorHandler != nil { errorHandler!() } }
+        
+        let defaultAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default, handler: wrappedHandler)
+        
+        alertController.addAction(defaultAction)
+        
+        controller.presentViewController(alertController, animated: animated, completion: completion)
+        
+        return true
+    }
+    
+    return false
+}
+
 extension UIViewController
 {
     public func presentError(error: NSError?, animated: Bool, completion: (() -> Void)?, handler errorHandler: (() -> Void)?) -> Bool
