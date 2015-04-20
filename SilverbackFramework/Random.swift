@@ -29,14 +29,6 @@ extension Bool
     }
 }
 
-extension UIColor
-{
-    class func randomColor() -> UIColor
-    {
-        return UIColor(red: CGFloat.random(lower: 0, upper: 1), green: CGFloat.random(lower: 0, upper: 1), blue: CGFloat.random(lower: 0, upper: 1), alpha: 1)
-    }
-}
-
 //public extension Int
 //{
 //    /**
@@ -152,17 +144,3 @@ public extension Double
 }
 
 
-extension CGFloat
-{
-    /**
-    Create a random num Float
-    :param: lower number Float
-    :param: upper number Float
-    :return: random number Float
-    */
-    public static func random(#lower: CGFloat, upper: CGFloat) -> CGFloat
-    {
-        let r = CGFloat(arc4random(UInt32)) / CGFloat(UInt32.max)
-        return (r * (upper - lower)) + lower
-    }
-}

@@ -8,7 +8,7 @@
 
 import CoreGraphics
 
-// MARK: - CGFloat
+// MARK: - Equals
 
 extension CGFloat
 {
@@ -53,3 +53,19 @@ public func /= (inout rhs: CGFloat, lhs: Int)
     rhs /= CGFloat(lhs)
 }
 
+//MARK: - Random
+
+extension CGFloat
+{
+    /**
+    Create a random CGFloat
+    :param: lower bounds
+    :param: upper bounds
+    :return: random number CGFloat
+    */
+    public static func random(#lower: CGFloat, upper: CGFloat) -> CGFloat
+    {
+        let r = CGFloat(arc4random(UInt32)) / CGFloat(UInt32.max)
+        return (r * (upper - lower)) + lower
+    }
+}

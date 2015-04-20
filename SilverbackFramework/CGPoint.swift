@@ -176,6 +176,13 @@ public func /= (inout point: CGPoint, factor: CGFloat)
     point.y /= factor
 }
 
+/// CAVEAT: first y then x comparison
+func > (p1: CGPoint, p2: CGPoint) -> Bool
+{
+    return (p1.y < p2.y) || ((p1.y == p2.y) && (p1.x < p2.x))
+}
+
+
 public func * (point: CGPoint, transform: CGAffineTransform) -> CGPoint
 {
     return CGPointApplyAffineTransform(point, transform)
