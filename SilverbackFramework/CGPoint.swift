@@ -38,7 +38,7 @@ extension CGPoint
     }
     
 
-    // MARK: distance
+    // MARK: mid way
 
     public func midWayTo(p2:CGPoint) -> CGPoint
     {
@@ -58,6 +58,11 @@ extension CGPoint
         
         x = center.x + (transposedX * cosTheta - transposedY * sinTheta)
         y = center.y + (transposedX * sinTheta + transposedY * cosTheta)
+    }
+    
+    public func angleToPoint(point: CGPoint) -> CGFloat
+    {
+        return atan2(point.y - y, point.x - x)
     }
 }
 
@@ -85,7 +90,7 @@ public func midPoint(between p1:CGPoint, and p2:CGPoint) -> CGPoint
 }
 
 
-// MARK: Equatable
+// MARK: - Equatable
 
 extension CGPoint: Equatable
 {
@@ -110,7 +115,25 @@ public func isEqual(p1: CGPoint, p2: CGPoint, withPrecision precision:CGFloat) -
     return distanceFrom(p1, to:p2) < abs(precision)
 }
 
-// MARK: operators
+
+// MARK: - Comparable
+
+extension CGPoint: Comparable
+{
+}
+
+/// CAVEAT: first y then x comparison
+public func > (p1: CGPoint, p2: CGPoint) -> Bool
+{
+    return (p1.y < p2.y) || ((p1.y == p2.y) && (p1.x < p2.x))
+}
+
+public func < (p1: CGPoint, p2: CGPoint) -> Bool
+{
+    return (p1.y > p2.y) || ((p1.y == p2.y) && (p1.x > p2.x))
+}
+
+// MARK: - Operators
 
 public func + (p1: CGPoint, p2: CGPoint) -> CGPoint
 {
@@ -182,13 +205,6 @@ public func /= (inout point: CGPoint, factor: CGFloat)
     point.x /= factor
     point.y /= factor
 }
-
-/// CAVEAT: first y then x comparison
-func > (p1: CGPoint, p2: CGPoint) -> Bool
-{
-    return (p1.y < p2.y) || ((p1.y == p2.y) && (p1.x < p2.x))
-}
-
 
 public func * (point: CGPoint, transform: CGAffineTransform) -> CGPoint
 {

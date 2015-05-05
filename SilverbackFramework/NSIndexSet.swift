@@ -10,7 +10,7 @@ import Foundation
 
 extension NSIndexSet
 {
-    convenience init(indicies: Array<Int>)
+    public convenience init(indicies: Array<Int>)
     {
         let mutableIndexSet = NSMutableIndexSet()
         
@@ -22,3 +22,4 @@ extension NSIndexSet
         self.init(indexSet:mutableIndexSet)
     }
 }
+

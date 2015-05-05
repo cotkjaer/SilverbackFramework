@@ -92,3 +92,12 @@ public extension Float
         return (r * (upper - lower)) + lower
     }
 }
+
+public extension Float
+{
+    public func format(format: String? = "") -> String
+    {
+        return String(format: "%\(format)f", self)
+    }
+}
+

@@ -10,6 +10,8 @@ import CoreGraphics
 
 // MARK: - CGVector
 
+public let CGVectorZero = CGVector(0,0)
+
 extension CGVector
 {
     public init(_ dx: CGFloat, _ dy: CGFloat)
@@ -59,6 +61,7 @@ extension CGVector
         dy = (dx * sinTheta + dy * cosTheta)
     }
     
+    public var angle : CGFloat { return atan2(dy, dx) }
 }
 
 func length(vector: CGVector) -> CGFloat

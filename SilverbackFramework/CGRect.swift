@@ -12,6 +12,12 @@ import CoreGraphics
 
 extension CGRect
 {
+    public init(center: CGPoint, _ size: CGSize)
+    {
+        self.origin = center - (size / 2)
+        self.size = size
+    }
+    
     public init(_ origin: CGPoint, _ size: CGSize)
     {
         self.origin = origin
@@ -97,55 +103,6 @@ extension CGRect
         set { y = newValue - height }
     }
     
-    // MARK: edge positions
-    
-    public var topLeft: CGPoint
-        {
-        get { return CGPoint(left, top) }
-        set { left = newValue.x; top = newValue.y }
-    }
-    
-    public var topCenter: CGPoint
-        {
-        get { return CGPoint(centerX, top) }
-        set { centerX = newValue.x; top = newValue.y }
-    }
-    
-    public var topRight: CGPoint
-        {
-        get { return CGPoint(right, top) }
-        set { right = newValue.x; top = newValue.y }
-    }
-    
-    public var centerLeft: CGPoint
-        {
-        get { return CGPoint(left, centerY) }
-        set { left = newValue.x; centerY = newValue.y }
-    }
-    
-    public var centerRight: CGPoint
-        {
-        get { return CGPoint(right, centerY) }
-        set { right = newValue.x; centerY = newValue.y }
-    }
-    
-    public var bottomLeft: CGPoint
-        {
-        get { return CGPoint(left, bottom) }
-        set { left = newValue.x; bottom = newValue.y }
-    }
-    
-    public var bottomCenter: CGPoint
-        {
-        get { return CGPoint(centerX, bottom) }
-        set { centerX = newValue.x; bottom = newValue.y }
-    }
-    
-    public var bottomRight: CGPoint
-        {
-        get { return CGPoint(right, bottom) }
-        set { right = newValue.x; bottom = newValue.y }
-    }
     
     // MARK: CGRectGet...
     
@@ -272,6 +229,83 @@ extension CGRect
     public mutating func inset(# bottomRight: CGSize)
     {
         inset(bottom: bottomRight.height, right: bottomRight.width)
+    }
+}
+
+// MARK: - Edge points
+extension CGRect
+{
+    public var topLeft: CGPoint
+        {
+        get { return CGPoint(left, top) }
+        set { left = newValue.x; top = newValue.y }
+    }
+    
+    public var topCenter: CGPoint
+        {
+        get { return CGPoint(centerX, top) }
+        set { centerX = newValue.x; top = newValue.y }
+    }
+    
+    public var topRight: CGPoint
+        {
+        get { return CGPoint(right, top) }
+        set { right = newValue.x; top = newValue.y }
+    }
+    
+    public var centerLeft: CGPoint
+        {
+        get { return CGPoint(left, centerY) }
+        set { left = newValue.x; centerY = newValue.y }
+    }
+    
+    public var centerRight: CGPoint
+        {
+        get { return CGPoint(right, centerY) }
+        set { right = newValue.x; centerY = newValue.y }
+    }
+    
+    public var bottomLeft: CGPoint
+        {
+        get { return CGPoint(left, bottom) }
+        set { left = newValue.x; bottom = newValue.y }
+    }
+    
+    public var bottomCenter: CGPoint
+        {
+        get { return CGPoint(centerX, bottom) }
+        set { centerX = newValue.x; bottom = newValue.y }
+    }
+    
+    public var bottomRight: CGPoint
+        {
+        get { return CGPoint(right, bottom) }
+        set { right = newValue.x; bottom = newValue.y }
+    }
+}
+
+// MARK: - Relative position
+
+extension CGRect
+{
+    public func isAbove(rect:CGRect) -> Bool
+    {
+        return bottom > rect.top
+    }
+
+    public func isBelow(rect:CGRect) -> Bool
+    {
+        return top > rect.bottom
+    }
+    
+    public func isLeftOf(rect:CGRect) -> Bool
+    {
+        return right < rect.left
+    }
+    
+    public func isRightOf(rect:CGRect) -> Bool
+    {
+        return left < rect.right
     }
 }
 

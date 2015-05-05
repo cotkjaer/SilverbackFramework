@@ -8,8 +8,9 @@
 
 import Foundation
 import CoreData
+import UIKit
 
-class CoreDataCollectionViewController: UICollectionViewController, NSFetchedResultsControllerDelegate
+public class CoreDataCollectionViewController: UICollectionViewController, NSFetchedResultsControllerDelegate
 {
     var managedContext : NSManagedObjectContext?
         {
@@ -117,7 +118,7 @@ class CoreDataCollectionViewController: UICollectionViewController, NSFetchedRes
     
     // MARK: UICollectionViewDataSource
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+    override public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
     {
         if let sections = fetchedResultsController?.sections as? [NSFetchedResultsSectionInfo]
         {
@@ -128,7 +129,7 @@ class CoreDataCollectionViewController: UICollectionViewController, NSFetchedRes
     }
     
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    override public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         if let sections = fetchedResultsController?.sections as? [NSFetchedResultsSectionInfo]
         {
@@ -143,7 +144,7 @@ class CoreDataCollectionViewController: UICollectionViewController, NSFetchedRes
     
     let CellReuseIdentifier = "Cell"
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+    override public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
         //        if let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as? SunrisesCollectionViewCell
         //        {
@@ -201,7 +202,7 @@ class CoreDataCollectionViewController: UICollectionViewController, NSFetchedRes
     var insertedSectionIndicies: Array<Int> = []
     
     
-    func controllerWillChangeContent(controller: NSFetchedResultsController)
+    public func controllerWillChangeContent(controller: NSFetchedResultsController)
     {
         deletedIndexPaths.removeAll(keepCapacity: false)
         insertedIndexPaths.removeAll(keepCapacity: false)
@@ -211,7 +212,7 @@ class CoreDataCollectionViewController: UICollectionViewController, NSFetchedRes
         insertedSectionIndicies.removeAll(keepCapacity: false)
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType)
+    public func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType)
     {
         switch type
         {
@@ -226,7 +227,7 @@ class CoreDataCollectionViewController: UICollectionViewController, NSFetchedRes
         }
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?)
+    public func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?)
     {
         switch type
         {
@@ -244,7 +245,7 @@ class CoreDataCollectionViewController: UICollectionViewController, NSFetchedRes
         }
     }
     
-    func controllerDidChangeContent(controller: NSFetchedResultsController)
+    public func controllerDidChangeContent(controller: NSFetchedResultsController)
     {
         if !movedIndexPaths.isEmpty
         {

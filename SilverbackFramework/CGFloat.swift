@@ -10,6 +10,8 @@ import CoreGraphics
 
 // MARK: - Equals
 
+public let CGFloatZero = CGFloat(0.0)
+
 extension CGFloat
 {
     public func isEqualWithin(precision: CGFloat, to: CGFloat) -> Bool
@@ -69,3 +71,12 @@ extension CGFloat
         return (r * (upper - lower)) + lower
     }
 }
+
+public extension CGFloat
+{
+    public func format(format: String? = "") -> String
+    {
+        return String(format: "%\(format)f", self)
+    }
+}
+

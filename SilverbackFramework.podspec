@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '8.0'
   s.requires_arc = true
   s.source_files = 'SilverbackFramework/*.{h,swift}'
-  s.frameworks   = 'UIKit', 'Foundation'
+  s.frameworks   = 'UIKit', 'Foundation', 'CoreGraphics', 'CoreData'
 end

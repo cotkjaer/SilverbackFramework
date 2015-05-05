@@ -21,13 +21,6 @@ public func arc4random <T: IntegerLiteralConvertible> (type: T.Type) -> T
     return r
 }
 
-extension Bool
-{
-    static func random() -> Bool
-    {
-        return Int.random(lower: 1, upper: 10) < 6
-    }
-}
 
 //public extension Int
 //{
@@ -115,18 +108,6 @@ extension UInt
     }
 }
 
-extension Int
-{
-    static func random(lower: Int = min, upper: Int = max) -> Int
-    {
-        switch (__WORDSIZE)
-        {
-        case 32: return Int(Int32.random(lower: Int32(lower), upper: Int32(upper)))
-        case 64: return Int(Int64.random(lower: Int64(lower), upper: Int64(upper)))
-        default: return lower
-        }
-    }
-}
 
 public extension Double
 {
