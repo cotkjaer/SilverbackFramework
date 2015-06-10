@@ -8,6 +8,23 @@
 
 import Foundation
 
+public func tail<T>(array: Array<T>?) -> Array<T>?
+{
+    let count = array?.count ?? 0
+    
+    if count > 1
+    {
+        return array![1 ..< count]
+    }
+    
+    return nil
+}
+
+public func head<T>(array: Array<T>?) -> T?
+{
+    return array?.first
+}
+
 internal extension Array
 {
     private var indexesInterval: HalfOpenInterval<Int> { return HalfOpenInterval<Int>(0, self.count) }

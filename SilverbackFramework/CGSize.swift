@@ -75,6 +75,11 @@ public func * (size: CGSize, factor: CGFloat) -> CGSize
     return CGSize(size.width * factor, size.height * factor)
 }
 
+public func * (factor: CGFloat, size: CGSize) -> CGSize
+{
+    return size * factor
+}
+
 public func *= (inout size: CGSize, factor: CGFloat)
 {
     size.width *= factor

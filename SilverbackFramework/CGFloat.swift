@@ -55,6 +55,26 @@ public func /= (inout rhs: CGFloat, lhs: Int)
     rhs /= CGFloat(lhs)
 }
 
+//MARK: - Angles
+
+public let π = CGFloat(M_PI)
+public let π2 = π * 2
+
+public extension CGFloat
+{
+    /// Normalizes self to be in ]-π;π]
+    public var normalizedRadians: CGFloat
+    {
+        return self - ( ceil( self / π2 - 0.5 ) ) * π2
+    }
+}
+
+/// Normalizes angle to be in ]-π;π]
+public func normalizeRadians(radians: CGFloat) -> CGFloat
+{
+    return radians - ( ceil( radians / π2 - 0.5 ) ) * π2
+}
+
 //MARK: - Random
 
 extension CGFloat

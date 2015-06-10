@@ -12,23 +12,17 @@ import CoreGraphics
 
 extension CGRect
 {
-    public init(center: CGPoint, _ size: CGSize)
+    public init(center c: CGPoint, size s: CGSize)
     {
-        self.origin = center - (size / 2)
-        self.size = size
+        origin = c - (s / 2)
+        size = s
     }
     
-    public init(_ origin: CGPoint, _ size: CGSize)
-    {
-        self.origin = origin
-        self.size = size
-    }
-    
-    public init(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat)
-    {
-        self.origin = CGPoint(x, y)
-        self.size = CGSize(width, height)
-    }
+//    public init(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat)
+//    {
+//        origin = CGPoint(x, y)
+//        size = CGSize(width, height)
+//    }
     
     public var center: CGPoint
         {
@@ -139,6 +133,11 @@ extension CGRect
     public func with(# origin: CGPoint) -> CGRect
     {
         return CGRect(origin: origin, size: size)
+    }
+    
+    public func with(# center: CGPoint) -> CGRect
+    {
+        return CGRect(center: center, size: size)
     }
     
     public func with(# x: CGFloat, y: CGFloat) -> CGRect
@@ -366,6 +365,20 @@ public func -= (inout rect: CGRect, size: CGSize)
     rect.size -= size
 }
 
+public func * (rect: CGRect, factor: CGFloat) -> CGRect
+{
+    return CGRect(center: rect.center, size: rect.size * factor)
+}
+
+public func * (factor: CGFloat, rect: CGRect) -> CGRect
+{
+    return rect * factor
+}
+
+public func *= (inout rect: CGRect, factor: CGFloat)
+{
+    rect = rect * factor
+}
 
 public func * (rect: CGRect, transform: CGAffineTransform) -> CGRect
 {

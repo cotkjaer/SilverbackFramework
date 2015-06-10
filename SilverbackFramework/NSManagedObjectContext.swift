@@ -10,7 +10,7 @@ import CoreData
 
 extension NSManagedObjectContext
 {
-    public convenience init?(modelName: String, inBundle: NSBundle? = nil, storeType: NSPersistentStoreType = .SQLite, error: NSErrorPointer = nil)
+    public convenience init?(modelName: String? = nil, inBundle: NSBundle? = nil, storeType: NSPersistentStoreType = .SQLite, error: NSErrorPointer = nil)
     {
         if let coordinator = NSPersistentStoreCoordinator(modelName:modelName, inBundle: inBundle ?? NSBundle.mainBundle(), storeType: storeType, error:error)
         {
@@ -19,7 +19,7 @@ extension NSManagedObjectContext
             return
         }
         
-        self.init()
+        self.init(concurrencyType: .MainQueueConcurrencyType)
         
         return nil
     }
@@ -129,5 +129,38 @@ extension NSManagedObjectContext
         }
         
         return nil
+    }
+    
+    public func any<T: NSManagedObject>(type: T.Type, format: String, _ arguments: AnyObject...) -> T?
+    {
+        let predicate = NSPredicate(format: format, argumentArray: arguments)
+        
+        return any(type, predicate: predicate)
+    }
+    
+    public func unique<T: NSManagedObject>(type: T.Type, with dictionary: [String : AnyObject]) -> T
+    {
+        var predicates = Array<NSPredicate>()
+        
+        for (key, value) in dictionary
+        {
+            predicates.append(NSPredicate(format: "%K = %@", argumentArray: [key, value]))
+        }
+        
+        if let res = any(type, predicate: NSCompoundPredicate(type: .AndPredicateType, subpredicates: predicates))
+        {
+            return res
+        }
+        else if let res = insert(type)
+        {
+            for (key, value) in dictionary
+            {
+                res.setValue(value, forKey: key)
+            }
+            
+            return res
+        }
+        
+        preconditionFailure("Unable to either find or insert \(type) with \(predicates.description)")
     }
 }

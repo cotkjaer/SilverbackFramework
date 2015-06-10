@@ -12,13 +12,16 @@ import UIKit
 
 public class CoreDataTableViewController: UITableViewController, NSFetchedResultsControllerDelegate
 {
-    private var error: NSError?
-
+    public var error: NSError?
+        {
+        didSet { error?.presentInViewController(self) }
+    }
+    
     public var managedObjectContext : NSManagedObjectContext! { didSet { updateFetchedResultsController() } }
     
     public var entityName : String?  { didSet { updateFetchedResultsController() } }
     
-    private var sortDescriptors : [NSSortDescriptor]?  { didSet { updateFetchedResultsController() } }
+    public var sortDescriptors : [NSSortDescriptor]?  { didSet { updateFetchedResultsController() } }
     
     public var sortDescriptor : NSSortDescriptor?
         {
@@ -32,22 +35,25 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
     
     private func updateFetchedResultsController()
     {
-        if sortDescriptors != nil
+        if managedObjectContext != nil
         {
-            if let entityName = self.entityName as String!
+            if sortDescriptors != nil
             {
-                if let entityDescription = NSEntityDescription.entityForName(entityName, inManagedObjectContext:managedObjectContext) as NSEntityDescription!
+                if let entityName = self.entityName as String!
                 {
-                    let fetchRequest = NSFetchRequest()
-                    fetchRequest.entity = entityDescription
-                    fetchRequest.sortDescriptors = self.sortDescriptors
-                    fetchRequest.predicate = self.predicate
-                    
-                    let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: self.sectionNameKeyPath, cacheName: nil)
-                    
-                    fetchedResultsController.delegate = self
-                    
-                    self.fetchedResultsController = fetchedResultsController
+                    if let entityDescription = NSEntityDescription.entityForName(entityName, inManagedObjectContext:managedObjectContext) as NSEntityDescription!
+                    {
+                        let fetchRequest = NSFetchRequest()
+                        fetchRequest.entity = entityDescription
+                        fetchRequest.sortDescriptors = self.sortDescriptors
+                        fetchRequest.predicate = self.predicate
+                        
+                        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: self.sectionNameKeyPath, cacheName: nil)
+                        
+                        fetchedResultsController.delegate = self
+                        
+                        self.fetchedResultsController = fetchedResultsController
+                    }
                 }
             }
         }

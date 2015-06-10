@@ -8,6 +8,26 @@
 
 import UIKit
 
+//MARK: - Navigation
+public extension UIViewController
+{
+    public func dismissThisViewControllerAnimated(animated: Bool)
+    {
+        if let navigationController = self.navigationController
+        {
+            if navigationController.topViewController == self
+            {
+                navigationController.popViewControllerAnimated(animated)
+            }
+        }
+        else if let presentingViewController = self.presentingViewController
+        {
+            presentingViewController.dismissViewControllerAnimated(animated, completion: nil)
+        }
+    }
+}
+
+
 typealias AlertActionHandler = (UIAlertAction!) -> (Void)
 
 public func presentError(error: NSError?, inController controller:UIViewController, animated: Bool, completion: (() -> Void)?, handler errorHandler: (() -> Void)?) -> Bool
