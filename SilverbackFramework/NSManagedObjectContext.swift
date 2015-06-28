@@ -19,6 +19,7 @@ extension NSManagedObjectContext
             return
         }
         
+        // This needs to be here, or the compiler complains
         self.init(concurrencyType: .MainQueueConcurrencyType)
         
         return nil

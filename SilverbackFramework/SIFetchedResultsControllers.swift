@@ -320,22 +320,26 @@ public class SIFetchedResultsCollectionViewController: UICollectionViewControlle
 {
     private let wrapper = SIFetchedResultsControllerWrapper()
     
-    public var typ : NSManagedObject.Type? {
+    public var typ : NSManagedObject.Type?
+        {
         get { return wrapper.typ }
         set { wrapper.typ = newValue }
     }
     
-    public var managedObjectContext : NSManagedObjectContext! {
+    public var managedObjectContext : NSManagedObjectContext!
+        {
         set { wrapper.managedObjectContext = newValue }
         get { return wrapper.managedObjectContext }
     }
     
-    public var sortDescriptors : [NSSortDescriptor] {
+    public var sortDescriptors : [NSSortDescriptor]
+        {
         set { wrapper.sortDescriptors = newValue }
         get { return wrapper.sortDescriptors }
     }
     
-    public var predicate: NSPredicate? {
+    public var predicate: NSPredicate?
+        {
         set { wrapper.predicate = newValue }
         get { return wrapper.predicate }
     }
@@ -482,7 +486,6 @@ public class SIFetchedResultsCollectionViewController: UICollectionViewControlle
     
     public override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
     {
-        
         let CellReuseIdentifier = "Cell"
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
