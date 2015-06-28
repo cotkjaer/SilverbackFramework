@@ -131,9 +131,7 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
     }
     
     // MARK: - NSFetchedResultsControllerDelegate
-    
-    
-    
+
     public func controllerWillChangeContent(controller: NSFetchedResultsController)
     {
         tableView.beginUpdates()

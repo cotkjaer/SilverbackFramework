@@ -9,7 +9,8 @@
 import Foundation
 import CoreData
 
-class Container: NSManagedObject {
+class Container: NSManagedObject
+{
 
     @NSManaged var name: String
     @NSManaged var elements: NSSet

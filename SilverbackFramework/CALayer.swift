@@ -11,7 +11,7 @@ import UIKit
 extension CALayer
 {
     public var image : UIImage
-    {
+{
         UIGraphicsBeginImageContextWithOptions(self.bounds.size, opaque, 0)
         
         renderInContext(UIGraphicsGetCurrentContext())

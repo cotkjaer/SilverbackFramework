@@ -11,7 +11,7 @@ import CoreData
 extension Container
 {
     convenience init(context: NSManagedObjectContext)
-    {
+{
         let entityDescription = NSEntityDescription.entityForName("Container", inManagedObjectContext: context)!
         self.init(entity: entityDescription, insertIntoManagedObjectContext: context)
     }

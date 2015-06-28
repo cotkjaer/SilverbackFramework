@@ -13,7 +13,7 @@ import CoreGraphics
 extension CGSize
 {
     public init(_ width: CGFloat, _ height: CGFloat)
-    {
+{
         self.width = width
         self.height = height
     }
@@ -21,12 +21,12 @@ extension CGSize
     // MARK: with
     
     public func with(# width: CGFloat) -> CGSize
-    {
+{
         return CGSize(width, height)
     }
     
     public func with(# height: CGFloat) -> CGSize
-    {
+{
         return CGSize(width, height)
     }
 }
@@ -36,7 +36,7 @@ extension CGSize
 extension CGSize: Equatable
 {
     public func isEqualTo(size:CGSize) -> Bool
-    {
+{
         return self == size
     }
 }

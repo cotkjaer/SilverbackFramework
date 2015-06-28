@@ -15,19 +15,19 @@ public let CGVectorZero = CGVector(0,0)
 extension CGVector
 {
     public init(_ dx: CGFloat, _ dy: CGFloat)
-    {
+{
         self.dx = dx
         self.dy = dy
     }
     
     public init(_ point:CGPoint)
-    {
+{
         dx = point.x
         dy = point.y
     }
     
     public init(_ from:CGPoint, to: CGPoint)
-    {
+{
         dx = to.x - from.x
         dy = to.x - from.x
     }
@@ -35,25 +35,26 @@ extension CGVector
     // MARK: with
     
     public func with(# dx: CGFloat) -> CGVector
-    {
+{
         return CGVector(dx, dy)
     }
     
     public func with(# dy: CGFloat) -> CGVector
-    {
+{
         return CGVector(dx, dy)
     }
     
     // MARK: length
     
-    public var length : CGFloat { get { return sqrt(pow(dx, 2) + pow(dy, 2)) }}
+    public var length : CGFloat
+{ get
+{ return sqrt(pow(dx, 2) + pow(dy, 2)) }}
     
     // MARK: rotation
-    
-    
+
     /// angle is in radians
     public mutating func rotate(theta:CGFloat)
-    {
+{
         let sinTheta = sin(theta)
         let cosTheta = cos(theta)
         
@@ -61,7 +62,8 @@ extension CGVector
         dy = (dx * sinTheta + dy * cosTheta)
     }
     
-    public var angle : CGFloat { return atan2(dy, dx) }
+    public var angle : CGFloat
+{ return atan2(dy, dx) }
 }
 
 func length(vector: CGVector) -> CGFloat
@@ -79,12 +81,12 @@ func midPoint(between vector1:CGVector, and vector2:CGVector) -> CGVector
 extension CGVector: Equatable
 {
     func isEqualTo(vector: CGVector, withPrecision precision:CGFloat) -> Bool
-    {
+{
         return  (self - vector).length < abs(precision)
     }
     
     public func isEqualTo(vector:CGVector) -> Bool
-    {
+{
         return self == vector
     }
 }

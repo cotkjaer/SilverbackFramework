@@ -16,7 +16,7 @@ extension Double
     :returns: fabs(self)
     */
     public var abs: Double
-        {
+{
             return Foundation.fabs(self)
     }
     
@@ -26,7 +26,7 @@ extension Double
     :returns: sqrt(self)
     */
     public var sqrt: Double
-        {
+{
             return Foundation.sqrt(self)
     }
     
@@ -36,7 +36,7 @@ extension Double
     :returns: floor(self)
     */
     public var floor: Double
-        {
+{
             return Foundation.floor(self)
     }
     
@@ -48,7 +48,7 @@ extension Double
     :returns: Clamped value
     */
     func clamp (lower: Double, _ upper: Double) -> Double
-    {
+{
         return Swift.max(lower, Swift.min(upper, self))
     }
     
@@ -58,7 +58,7 @@ extension Double
     :returns: ceil(self)
     */
     public var ceil: Double
-        {
+{
             return Foundation.ceil(self)
     }
     
@@ -68,25 +68,23 @@ extension Double
     :returns: round(self)
     */
     public var round: Double
-        {
+{
             return Foundation.round(self)
     }
-    
-    
-    
+
     /**
     Rounding to arbitrary number
     
     :params: number the number to round to
     */
     public func roundToNearest(number: Double) -> Double
-    {
+{
         let remainder = self % number
         return remainder < number / 2 ? self - remainder : self - remainder + number
     }
     
     public func format(format: String? = "") -> String
-    {
+{
         return String(format: "%\(format)f", self)
     }
 }

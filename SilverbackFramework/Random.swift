@@ -17,23 +17,8 @@ public func arc4random <T: IntegerLiteralConvertible> (type: T.Type) -> T
     var r: T = 0
     
     arc4random_buf(&r, sizeof(T))
-//    arc4random_buf(&r, UInt(sizeof(T)))
     return r
 }
-
-
-//public extension Int
-//{
-//    /**
-//    Create a random num Int
-//    :param: lower number Int
-//    :param: upper number Int
-//    :return: random number Int
-//    */
-//    public static func random (#lower: Int , upper: Int) -> Int {
-//        return lower + Int(arc4random_uniform(upper - lower + 1))
-//    }
-//}
 
 extension UInt64
 {
@@ -46,7 +31,8 @@ extension UInt64
         if u > UInt64(Int64.max)
         {
             m = 1 + ~u
-        } else
+        }
+        else
         {
             m = ((max - (u * 2)) + 1) % u
         }
@@ -71,7 +57,8 @@ extension Int64
         if r > UInt64(Int64.max)
         {
             return Int64(r - (UInt64(~lower) + 1))
-        } else
+        }
+        else
         {
             return Int64(r) + lower
         }

@@ -7,6 +7,7 @@
 //
 
 import CoreGraphics
+import UIKit
 
 // MARK: - CGPoint
 
@@ -37,9 +38,9 @@ extension CGPoint
         return sqrt(pow(x - point.x, 2) + pow(y - point.y, 2))
     }
     
-
+    
     // MARK: mid way
-
+    
     public func midWayTo(p2:CGPoint) -> CGPoint
     {
         return CGPoint((self.x + p2.x) / 2.0, (self.y + p2.y) / 2.0)
@@ -75,8 +76,8 @@ public func rotate(point p1:CGPoint, radians: CGFloat, around p2:CGPoint) -> CGP
     let transposedY = p1.y - p2.y
     
     return CGPoint(p2.x + (transposedX * cosTheta - transposedY * sinTheta),
-                   p2.y + (transposedX * sinTheta + transposedY * cosTheta))
-
+        p2.y + (transposedX * sinTheta + transposedY * cosTheta))
+    
 }
 
 public func distanceFrom(p1:CGPoint, to p2:CGPoint) -> CGFloat
@@ -105,9 +106,9 @@ extension CGPoint: Equatable
     }
 }
 
-public func == (p1: CGPoint, p2: CGPoint) -> Bool
+public func ==(lhs: CGPoint, rhs: CGPoint) -> Bool
 {
-    return p1.x == p2.x && p1.y == p2.y
+    return lhs.x == rhs.x && lhs.y == rhs.y
 }
 
 public func isEqual(p1: CGPoint, p2: CGPoint, withPrecision precision:CGFloat) -> Bool
@@ -144,6 +145,11 @@ public func += (inout p1: CGPoint, p2: CGPoint)
 {
     p1.x += p2.x
     p1.y += p2.y
+}
+
+public prefix func - (p: CGPoint) -> CGPoint
+{
+    return CGPoint(-p.x, -p.y)
 }
 
 public func - (p1: CGPoint, p2: CGPoint) -> CGPoint
@@ -214,6 +220,56 @@ public func * (point: CGPoint, transform: CGAffineTransform) -> CGPoint
 public func *= (inout point: CGPoint, transform: CGAffineTransform)
 {
     point = point * transform//CGPointApplyAffineTransform(point, transform)
+}
+
+//MARK: - Random
+
+public extension CGPoint
+{
+    /**
+    Create a random CGFloat
+    :param: center center, defaults to (0, 0)
+    :param: lowerRadius bounds, defaults to 0
+    :param: upperRadius bounds
+    :return: random number CGFloat
+    */
+    static func random(center: CGPoint = CGPointZero, lowerRadius: CGFloat = 0, upperRadius: CGFloat) -> CGPoint
+    {
+        let upper = max(abs(upperRadius), abs(lowerRadius))
+        let lower = min(abs(upperRadius), abs(lowerRadius))
+        
+        let radius = CGFloat.random(lower: lower, upper: upper)
+        let alpha = CGFloat.random(lower: 0, upper: 2 * π)
+        
+        return CGPoint(x: center.x + cos(alpha) * radius, y: center.y + sin(alpha) * radius)
+    }
+    
+    /**
+    Create a random CGFloat
+    :param: path, bounding path for random point
+    :param: lowerRadius bounds, defaults to 0
+    :param: upperRadius bounds
+    :return: random number CGFloat
+    */
+    static func random(insidePath: UIBezierPath) -> CGPoint?
+    {
+        let bounds = insidePath.bounds
+        
+        for tries in 0...100
+        {
+            let point =
+            CGPoint(x: CGFloat.random(lower: bounds.minX, upper: bounds.maxX),
+                y: CGFloat.random(lower: bounds.minY, upper: bounds.maxY))
+            
+            if insidePath.containsPoint(point)
+            {
+                return point
+            }
+        }
+        
+        return nil
+    }
+    
 }
 
 

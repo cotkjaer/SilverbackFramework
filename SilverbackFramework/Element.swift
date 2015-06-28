@@ -9,7 +9,8 @@
 import Foundation
 import CoreData
 
-class Element: NSManagedObject {
+class Element: NSManagedObject
+{
 
     @NSManaged var id: Int16
     @NSManaged var container: Container

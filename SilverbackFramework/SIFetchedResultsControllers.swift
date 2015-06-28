@@ -297,8 +297,7 @@ public class SIFetchedResultsTableViewController: UITableViewController, SIFetch
     {
         //Override
     }
-    
-    
+
     public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         return wrapper.sectionInfoForSection(section)?.name

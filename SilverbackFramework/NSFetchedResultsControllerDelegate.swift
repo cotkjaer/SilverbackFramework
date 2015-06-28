@@ -10,9 +10,6 @@ import Foundation
 import CoreData
 import UIKit
 
-
-
-
 //public typealias TableViewCellUpdateHandler = (tableView:UITableView, indexPath:NSIndexPath, object:AnyObject) -> (Void)
 //
 //

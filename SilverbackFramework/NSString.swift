@@ -11,9 +11,9 @@ import Foundation
 public extension NSString
 {
     public var uppercaseFirstLetter: NSString?
-    {
+{
         if length > 0
-        {
+{
             return self.substringToIndex(1).uppercaseString
         }
         

@@ -13,7 +13,7 @@ import CoreGraphics
 extension CGAffineTransform: Equatable
 {
     public func isEqualTo(transform:CGAffineTransform) -> Bool
-    {
+{
         return self == transform
     }
 }
@@ -28,7 +28,7 @@ public func == (t1: CGAffineTransform, t2: CGAffineTransform) -> Bool
 extension CGAffineTransform: DebugPrintable
 {
     public var debugDescription: String
-        {
+{
             return "(\(a), \(b), \(c), \(d), \(tx), \(ty))"
     }
 }

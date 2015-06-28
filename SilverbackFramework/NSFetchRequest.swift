@@ -11,7 +11,7 @@ import CoreData
 extension NSFetchRequest
 {
     public convenience init<T:NSManagedObject>(type:T.Type)
-    {
+{
         self.init(entityName:type.entityName)
     }
 }

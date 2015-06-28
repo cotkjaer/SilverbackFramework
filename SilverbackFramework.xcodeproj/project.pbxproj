@@ -31,6 +31,7 @@
 		8F0655FA1B1EEFAA00C30669 /* SIFetchedResultsControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0655F91B1EEFAA00C30669 /* SIFetchedResultsControllers.swift */; };
 		8F0655FB1B1EEFC000C30669 /* SIFetchedResultsControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0655F91B1EEFAA00C30669 /* SIFetchedResultsControllers.swift */; };
 		8F14CC8A1B1C45EC00C94D4B /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14CC891B1C45EC00C94D4B /* Queue.swift */; };
+		8F2CFADA1B32AD9500BEEBFF /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2CFAD91B32AD9500BEEBFF /* Operators.swift */; };
 		8F2F5BFB1AE698CA00D0C267 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2F5BFA1AE698CA00D0C267 /* NSManagedObject.swift */; };
 		8F2F5BFE1AE6C60800D0C267 /* SilverbackFramework.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F2F5BFC1AE6C60800D0C267 /* SilverbackFramework.xcdatamodeld */; };
 		8F2F5BFF1AE6C60800D0C267 /* SilverbackFramework.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F2F5BFC1AE6C60800D0C267 /* SilverbackFramework.xcdatamodeld */; };
@@ -72,6 +73,8 @@
 		8F586B661AE52F76008B7E85 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F586B651AE52F76008B7E85 /* Int.swift */; };
 		8F623B801B274A35007ED830 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F623B7F1B274A35007ED830 /* UIView.swift */; };
 		8F7F7AB31AE56B5B003506C6 /* NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F7AB21AE56B5B003506C6 /* NSString.swift */; };
+		8FA367251B3003B600106299 /* SortedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA367241B3003B600106299 /* SortedCollection.swift */; };
+		8FD11E021B3FBBBC000F1200 /* PagingCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD11E011B3FBBBC000F1200 /* PagingCollectionViewFlowLayout.swift */; };
 		8FDB8EEF1AE4E73C00D17087 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EEE1AE4E73C00D17087 /* CGFloat.swift */; };
 		8FDB8EF11AE4E95000D17087 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EF01AE4E95000D17087 /* CGPoint.swift */; };
 		8FDB8EF31AE4EC2000D17087 /* CGVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EF21AE4EC2000D17087 /* CGVector.swift */; };
@@ -134,6 +137,7 @@
 		8F0655F61B1DD77000C30669 /* NSIndexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSIndexPath.swift; sourceTree = "<group>"; };
 		8F0655F91B1EEFAA00C30669 /* SIFetchedResultsControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIFetchedResultsControllers.swift; sourceTree = "<group>"; };
 		8F14CC891B1C45EC00C94D4B /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		8F2CFAD91B32AD9500BEEBFF /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		8F2F5BFA1AE698CA00D0C267 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		8F2F5BFD1AE6C60800D0C267 /* SilverbackFramework.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SilverbackFramework.xcdatamodel; sourceTree = "<group>"; };
 		8F2F5C001AE6C63500D0C267 /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 		8F586B651AE52F76008B7E85 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		8F623B7F1B274A35007ED830 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		8F7F7AB21AE56B5B003506C6 /* NSString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSString.swift; sourceTree = "<group>"; };
+		8FA367241B3003B600106299 /* SortedCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedCollection.swift; sourceTree = "<group>"; };
+		8FD11E011B3FBBBC000F1200 /* PagingCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		8FDB8EEE1AE4E73C00D17087 /* CGFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		8FDB8EF01AE4E95000D17087 /* CGPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 		8FDB8EF21AE4EC2000D17087 /* CGVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGVector.swift; sourceTree = "<group>"; };
@@ -246,7 +252,9 @@
 				8FDB8F221AE5080B00D17087 /* UIImage.swift */,
 				8FDB8F241AE50A0C00D17087 /* UIViewController.swift */,
 				8F623B7F1B274A35007ED830 /* UIView.swift */,
+				8FA367241B3003B600106299 /* SortedCollection.swift */,
 				8F0655E21B1DCD1400C30669 /* UICollectionView.swift */,
+				8FD11E011B3FBBBC000F1200 /* PagingCollectionViewFlowLayout.swift */,
 				8F46F2A81AE67E35001DF26E /* NSObject.swift */,
 				8F46F2AC1AE68597001DF26E /* NSError.swift */,
 			);
@@ -333,6 +341,7 @@
 				8F14CC891B1C45EC00C94D4B /* Queue.swift */,
 				8F586B631AE52CEE008B7E85 /* Double.swift */,
 				8F586B651AE52F76008B7E85 /* Int.swift */,
+				8F2CFAD91B32AD9500BEEBFF /* Operators.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -468,6 +477,7 @@
 				8F46F2971AE63297001DF26E /* CoreDataTableViewController.swift in Sources */,
 				8F46F2AB1AE67E76001DF26E /* CoreDataStack.swift in Sources */,
 				8FDB8F1E1AE503BF00D17087 /* String.swift in Sources */,
+				8FA367251B3003B600106299 /* SortedCollection.swift in Sources */,
 				8FDB8EF11AE4E95000D17087 /* CGPoint.swift in Sources */,
 				8F0655FA1B1EEFAA00C30669 /* SIFetchedResultsControllers.swift in Sources */,
 				8FDB8EEF1AE4E73C00D17087 /* CGFloat.swift in Sources */,
@@ -477,6 +487,7 @@
 				8F586B661AE52F76008B7E85 /* Int.swift in Sources */,
 				8F0655F71B1DD77000C30669 /* NSIndexPath.swift in Sources */,
 				8F54B8331AE7D52E00331B5C /* NSFetchRequest.swift in Sources */,
+				8FD11E021B3FBBBC000F1200 /* PagingCollectionViewFlowLayout.swift in Sources */,
 				8F2F5C201AE703E300D0C267 /* NSManagedObjectModel.swift in Sources */,
 				8FDB8F031AE4F11D00D17087 /* Float.swift in Sources */,
 				8F040C5B1AE4E26000A3411D /* Random.swift in Sources */,
@@ -487,6 +498,7 @@
 				8F040C591AE4E1A700A3411D /* UIColor.swift in Sources */,
 				8F623B801B274A35007ED830 /* UIView.swift in Sources */,
 				8F14CC8A1B1C45EC00C94D4B /* Queue.swift in Sources */,
+				8F2CFADA1B32AD9500BEEBFF /* Operators.swift in Sources */,
 				8F586B5C1AE528E8008B7E85 /* Bool.swift in Sources */,
 				8F2F5C091AE6C8E100D0C267 /* Element.swift in Sources */,
 				8F586B641AE52CEE008B7E85 /* Double.swift in Sources */,

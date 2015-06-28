@@ -8,16 +8,17 @@
 
 import Foundation
 
-extension NSIndexPath : Comparable {}
+extension NSIndexPath : Comparable
+{}
 
 public func == (lhs: NSIndexPath, rhs: NSIndexPath) -> Bool
 {
     if lhs.length == rhs.length
-    {
+{
         for index in 0 ..< lhs.length
-        {
+{
             if lhs.indexAtPosition(index) != rhs.indexAtPosition(index)
-            {
+{
                 return false
             }
         }
@@ -31,11 +32,11 @@ public func == (lhs: NSIndexPath, rhs: NSIndexPath) -> Bool
 public func < (lhs: NSIndexPath, rhs: NSIndexPath) -> Bool
 {
     if lhs.length <= rhs.length
-    {
+{
         for index in 0 ..< lhs.length
-        {
+{
             if lhs.indexAtPosition(index) < rhs.indexAtPosition(index)
-            {
+{
                 return true
             }
         }

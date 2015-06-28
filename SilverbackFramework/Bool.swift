@@ -11,13 +11,13 @@ import Foundation
 extension Bool
 {
     public mutating func toggle() -> Bool
-    {
+{
         self = !self
         return self
     }
     
     public static func random() -> Bool
-    {
+{
         return Double.random(lower: 0, upper: 1) < 0.500
     }
 }

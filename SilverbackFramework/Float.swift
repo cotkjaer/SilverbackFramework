@@ -16,7 +16,7 @@ public extension Float
     :returns: fabs(self)
     */
     public var abs: Float
-        {
+{
             return fabsf(self)
     }
     
@@ -26,7 +26,7 @@ public extension Float
     :returns: sqrtf(self)
     */
     public var sqrt: Float
-        {
+{
             return sqrtf(self)
     }
     
@@ -36,7 +36,7 @@ public extension Float
     :returns: floorf(self)
     */
     public var floor: Float
-        {
+{
             return floorf(self)
     }
     
@@ -46,7 +46,7 @@ public extension Float
     :returns: ceilf(self)
     */
     public var ceil: Float
-        {
+{
             return ceilf(self)
     }
     
@@ -56,7 +56,7 @@ public extension Float
     :returns: roundf(self)
     */
     public var round: Float
-        {
+{
             return roundf(self)
     }
     
@@ -68,12 +68,12 @@ public extension Float
     :returns: Clamped value
     */
     public func clamp (lower: Float, _ upper: Float) -> Float
-    {
+{
         return Swift.max(lower, Swift.min(upper, self))
     }
     
     public static func random() -> Float
-    {
+{
         return random(lower: 0.0, upper: HUGE)
     }
     
@@ -85,8 +85,9 @@ public extension Float
     :return: random number Float
     */
     public static func random(#lower: Float, upper: Float) -> Float
-    {
-        if lower > upper { return random(lower: upper, upper: lower) }
+{
+        if lower > upper
+{ return random(lower: upper, upper: lower) }
 
         let r = Float(arc4random(UInt32)) / Float(UInt32.max)
         return (r * (upper - lower)) + lower
@@ -96,7 +97,7 @@ public extension Float
 public extension Float
 {
     public func format(format: String? = "") -> String
-    {
+{
         return String(format: "%\(format)f", self)
     }
 }

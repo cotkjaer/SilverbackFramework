@@ -11,9 +11,10 @@ import Foundation
 public extension NSObject
 {
     public class func baseName() -> String
-    {
+{
         let fullClassName: String = NSStringFromClass(object_getClass(self))
-        let classNameComponents: [String] = split(fullClassName) { $0 == "." }
+        let classNameComponents: [String] = split(fullClassName)
+{ $0 == "." }
         return last(classNameComponents)!
     }
 }

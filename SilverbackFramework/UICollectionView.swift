@@ -11,7 +11,7 @@ import UIKit
 public extension UICollectionView
 {
     func performBatchUpdates(updates: (() -> Void)?)
-    {
+{
         performBatchUpdates(updates, completion: nil)
     }
 }

@@ -18,12 +18,6 @@ extension CGRect
         size = s
     }
     
-//    public init(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat)
-//    {
-//        origin = CGPoint(x, y)
-//        size = CGSize(width, height)
-//    }
-    
     public var center: CGPoint
         {
         get { return CGPoint(centerX, centerY) }
@@ -43,19 +37,6 @@ extension CGRect
         get { return origin.y }
         set { origin.y = newValue }
     }
-    
-    // CoreGraphics now contains read-only versions of height and width
-    //    public var width: CGFloat
-    //        {
-    //        get { return size.width }
-    //        set { size.width = newValue }
-    //    }
-    //
-    //    public var height: CGFloat
-    //        {
-    //        get { return size.height }
-    //        set { size.height = newValue }
-    //    }
     
     // MARK: private center
     
@@ -96,8 +77,7 @@ extension CGRect
         get { return y + height }
         set { y = newValue - height }
     }
-    
-    
+
     // MARK: CGRectGet...
     
     public var minX : CGFloat { get { return CGRectGetMinX(self) } }
@@ -107,8 +87,7 @@ extension CGRect
     public var minY : CGFloat { get { return CGRectGetMinY(self) } }
     public var midY : CGFloat { get { return CGRectGetMidY(self) } }
     public var maxY : CGFloat { get { return CGRectGetMaxY(self) } }
-    
-    
+
     // MARK: Contains
     
     public func contains(point: CGPoint) -> Bool
