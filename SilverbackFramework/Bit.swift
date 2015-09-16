@@ -8,6 +8,86 @@
 
 import Foundation
 
+public enum BytesCount
+{
+    case Fixed(Int)
+    case VariableInt
+    case VariableByte
+}
+
+public protocol BytesConvertible
+{
+    var bytes: [UInt8] { get }
+    
+    static var bytesCount: BytesCount { get }
+    
+    init?(bytes: [UInt8])
+}
+
+public extension NSMutableData
+{
+    func appendBytesConvertible<B:BytesConvertible>(bytesConvertible: B)
+    {
+        var bytes = bytesConvertible.bytes
+        
+        switch B.bytesCount
+        {
+        case .Fixed(let count):
+            if count != bytes.count { debugPrint("strange mismatch in bytes produced vs. bytes to write") }
+            
+        case .VariableInt:
+            appendInt(bytesConvertible.bytes.count)
+            
+        case .VariableByte:
+            appendByte(UInt8(bytesConvertible.bytes.count & 0xFF))
+        }
+        
+        appendBytes(&bytes, length: bytes.count)
+    }
+}
+
+public extension NSData
+{
+    func readBytesConvertible<B:BytesConvertible>(inout location: Int) throws -> B
+    {
+        let cachedLocation = location
+        
+        do
+        {
+            var bytesToRead:Int = 0
+            
+            switch B.bytesCount
+            {
+            case .Fixed(let count):
+                bytesToRead = count
+                
+            case .VariableInt:
+                bytesToRead = try readInt(&location)
+                
+            case .VariableByte:
+                bytesToRead = Int(try readByte(&location))
+            }
+            
+            let bytes = try readBytes(&location, count: bytesToRead)
+            
+            if let b = B(bytes: bytes)
+            {
+                return b
+            }
+            else
+            {
+                throw BytesError.MalformedBytes
+            }
+        }
+        catch let e
+        {
+            location = cachedLocation
+            throw e
+        }
+    }
+}
+
+
 func bitsizeof<T>(_: T.Type) -> Int { return sizeof(T) * 8 }
 
 
