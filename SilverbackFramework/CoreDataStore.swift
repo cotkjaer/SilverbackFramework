@@ -27,9 +27,9 @@ public enum CoreDataStoreType
     
     internal func persistentStoreFileURL(modelName: String) -> NSURL?
     {
-        if let documentsDirectoryURL = NSFileManager.defaultManager().URLForDirectory(.DocumentDirectory,
-            inDomain: .UserDomainMask, appropriateForURL: nil, create: true, error: nil)
-        {
+        do {
+            let documentsDirectoryURL = try NSFileManager.defaultManager().URLForDirectory(.DocumentDirectory,
+                inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
             switch self
             {
             case .SQLite:
@@ -39,6 +39,7 @@ public enum CoreDataStoreType
             case .Binary:
                 return documentsDirectoryURL.URLByAppendingPathComponent(modelName + ".bin")
             }
+        } catch _ {
         }
         return nil
     }
@@ -63,16 +64,17 @@ public class CoreDataStore
      
                 var internalError: NSError? = nil
 
-                if let store = persistentStoreCoordinator.addPersistentStoreWithType(
-                    storeType.persistentStoreType,
-                    configuration: nil,
-                    URL: storeType.persistentStoreFileURL(modelName),
-                    options: nil,
-                    error: &internalError)
-                {
+                do {
+                    let _ = try persistentStoreCoordinator.addPersistentStoreWithType(
+                        storeType.persistentStoreType,
+                        configuration: nil,
+                        URL: storeType.persistentStoreFileURL(modelName),
+                        options: nil)
                     self.persistentStoreCoordinator = persistentStoreCoordinator
                     
                     return
+                } catch let error as NSError {
+                    internalError = error
                 }
                 
                 error?.memory = NSError(domain: "CoreDataStore", code: 3, description: "Failed to create CoreDataStore", reason: "Could not create Persistent Store", underlyingError: internalError)

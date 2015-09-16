@@ -13,7 +13,7 @@ extension Double
     /**
     Absolute value.
     
-    :returns: fabs(self)
+    - returns: fabs(self)
     */
     public var abs: Double
 {
@@ -23,7 +23,7 @@ extension Double
     /**
     Squared root.
     
-    :returns: sqrt(self)
+    - returns: sqrt(self)
     */
     public var sqrt: Double
 {
@@ -33,7 +33,7 @@ extension Double
     /**
     Rounds self to the largest integer <= self.
     
-    :returns: floor(self)
+    - returns: floor(self)
     */
     public var floor: Double
 {
@@ -43,9 +43,9 @@ extension Double
     /**
     Clamps self to a specified range.
     
-    :param: lower Lower bound
-    :param: upper Upper bound
-    :returns: Clamped value
+    - parameter lower: Lower bound
+    - parameter upper: Upper bound
+    - returns: Clamped value
     */
     func clamp (lower: Double, _ upper: Double) -> Double
 {
@@ -55,7 +55,7 @@ extension Double
     /**
     Rounds self to the smallest integer >= self.
     
-    :returns: ceil(self)
+    - returns: ceil(self)
     */
     public var ceil: Double
 {
@@ -65,7 +65,7 @@ extension Double
     /**
     Rounds self to the nearest integer.
     
-    :returns: round(self)
+    - returns: round(self)
     */
     public var round: Double
 {

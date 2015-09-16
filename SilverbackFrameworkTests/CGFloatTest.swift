@@ -16,6 +16,6 @@ class CGFloatTest: XCTestCase
         let x1 : CGFloat = 1.0
         let x2 : CGFloat = 1.01
         
-        XCTAssert(equalsWithin(CGFloat(0.02), x1, to: x2))
+        XCTAssert(equalsWithin(CGFloat(0.02), f1: x1, to: x2))
     }
 }

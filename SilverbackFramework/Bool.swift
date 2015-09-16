@@ -8,16 +8,30 @@
 
 import Foundation
 
-extension Bool
+public extension Bool
 {
-    public mutating func toggle() -> Bool
-{
+    func toggled() -> Bool
+    {
+        return !self
+    }
+    
+    mutating func toggle() -> Bool
+    {
         self = !self
         return self
     }
     
-    public static func random() -> Bool
-{
+    static func random() -> Bool
+    {
         return Double.random(lower: 0, upper: 1) < 0.500
     }
+}
+
+extension Bool: Comparable {}
+
+public func < (lhs: Bool, rhs: Bool) -> Bool
+{
+    if rhs { return !lhs }
+    
+    return false
 }

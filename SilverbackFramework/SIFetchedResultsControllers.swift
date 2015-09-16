@@ -73,8 +73,10 @@ internal class SIFetchedResultsControllerWrapper: NSObject,  NSFetchedResultsCon
             {
                 var error : NSError? = nil
                 
-                if !fController.performFetch(&error)
-                {
+                do {
+                    try fController.performFetch()
+                } catch let error1 as NSError {
+                    error = error1
                     reportError(NSError(domain: "SIFetchedResultsControllerHandler", code: 2, description: "Could not perform initial fetch for \(fController)", underlyingError: error))
                 }
             }
@@ -83,7 +85,7 @@ internal class SIFetchedResultsControllerWrapper: NSObject,  NSFetchedResultsCon
     
     // MARK: - Lookup
     
-    var sectionInfos : [NSFetchedResultsSectionInfo] { return (fetchedResultsController?.sections as? [NSFetchedResultsSectionInfo]) ?? [] }
+    var sectionInfos : [NSFetchedResultsSectionInfo] { return fetchedResultsController?.sections ?? [] }
     
     var numberOfSections : Int { return sectionInfos.count }
     
@@ -112,7 +114,7 @@ internal class SIFetchedResultsControllerWrapper: NSObject,  NSFetchedResultsCon
         return nil
     }
     
-    var sectionIndexTitles: [String] { return (fetchedResultsController?.sectionIndexTitles as? [String]) ?? [] }
+    var sectionIndexTitles: [String] { return fetchedResultsController?.sectionIndexTitles ?? [] }
     
     func sectionForSectionIndexTitle(title: String, atIndex index: Int) -> Int
     {
@@ -153,9 +155,9 @@ internal class SIFetchedResultsControllerWrapper: NSObject,  NSFetchedResultsCon
         case .Insert:
             insertedSectionClosure?(sectionIndex)
         case .Move:
-            println("Ignored Move of section \(sectionIndex)")
+            debugPrint("Ignored Move of section \(sectionIndex)")
         case .Update:
-            println("Ignored Update of section \(sectionIndex)")
+            debugPrint("Ignored Update of section \(sectionIndex)")
         }
     }
     
@@ -164,9 +166,19 @@ internal class SIFetchedResultsControllerWrapper: NSObject,  NSFetchedResultsCon
         didChangeObject anObject: AnyObject,
         atIndexPath indexPath: NSIndexPath?,
         forChangeType type: NSFetchedResultsChangeType,
-        newIndexPath: NSIndexPath?
-        )
+        newIndexPath: NSIndexPath?)
     {
+//        <#code#>
+//    }
+//    
+//    func controller(
+//        controller: NSFetchedResultsController,
+//        didChangeObject anObject: NSManagedObject,
+//        atIndexPath indexPath: NSIndexPath?,
+//        forChangeType type: NSFetchedResultsChangeType,
+//        newIndexPath: NSIndexPath?
+//        )
+//    {
         switch type
         {
         case .Delete where indexPath != nil: deletedItemClosure?(indexPath!)
@@ -178,7 +190,7 @@ internal class SIFetchedResultsControllerWrapper: NSObject,  NSFetchedResultsCon
         case .Update where indexPath != nil: updatedItemClosure?(indexPath!)
             
         default:
-            println("Bogus change of type \(type) with indexPath: \(indexPath) and \(newIndexPath)")
+            debugPrint("Bogus change of type \(type) with indexPath: \(indexPath) and \(newIndexPath)")
         }
     }
     
@@ -283,7 +295,7 @@ public class SIFetchedResultsTableViewController: UITableViewController, SIFetch
     {
         let CellReuseIdentifier = "Cell"
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) 
         
         if let object = wrapper.entityAtIndexPath(indexPath)
         {
@@ -303,7 +315,7 @@ public class SIFetchedResultsTableViewController: UITableViewController, SIFetch
         return wrapper.sectionInfoForSection(section)?.name
     }
     
-    public override func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]!
+    public override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]?
     {
         return wrapper.sectionIndexTitles
     }
@@ -394,19 +406,19 @@ public class SIFetchedResultsCollectionViewController: UICollectionViewControlle
                 
                 for (fromIndexPath, toIndexPath) in self.movedIndexPaths
                 {
-                    if contains(self.deletedSections, fromIndexPath.section)
+                    if self.deletedSections.contains(fromIndexPath.section)
                     {
-                        if !contains(self.insertedSections, toIndexPath.section)
+                        if !self.insertedSections.contains(toIndexPath.section)
                         {
-                            if !contains(self.insertedIndexPaths, toIndexPath)
+                            if !self.insertedIndexPaths.contains(toIndexPath)
                             {
                                 self.insertedIndexPaths.append(toIndexPath)
                             }
                         }
                     }
-                    else if contains(self.insertedSections, toIndexPath.section)
+                    else if self.insertedSections.contains(toIndexPath.section)
                     {
-                        if !contains(self.deletedIndexPaths, fromIndexPath)
+                        if !self.deletedIndexPaths.contains(fromIndexPath)
                         {
                             self.deletedIndexPaths.append(fromIndexPath)
                         }
@@ -420,8 +432,8 @@ public class SIFetchedResultsCollectionViewController: UICollectionViewControlle
                 self.movedIndexPaths = remainingMoves
             }
             
-            self.deletedIndexPaths = filter(self.deletedIndexPaths) { !contains(self.deletedSections, $0.section)}
-            self.insertedIndexPaths = filter(self.insertedIndexPaths) { !contains(self.insertedSections, $0.section)}
+            self.deletedIndexPaths = self.deletedIndexPaths.filter { !self.deletedSections.contains($0.section)}
+            self.insertedIndexPaths = self.insertedIndexPaths.filter { !self.insertedSections.contains($0.section)}
             
             self.collectionView?.performBatchUpdates(
                 { //() -> Void in
@@ -488,7 +500,7 @@ public class SIFetchedResultsCollectionViewController: UICollectionViewControlle
     {
         let CellReuseIdentifier = "Cell"
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CellReuseIdentifier, forIndexPath: indexPath) 
         
         if let object = wrapper.entityAtIndexPath(indexPath)
         {

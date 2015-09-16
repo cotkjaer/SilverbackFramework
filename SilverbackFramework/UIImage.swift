@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 public extension UIImage
 {
     class func imageFromColor(color: UIColor) -> UIImage
@@ -61,12 +62,12 @@ public extension UIImage
     
     func imageByMaskingToAreaInsidePath(maskPath: UIBezierPath) -> UIImage
 {
-        return self.compositeImage(maskPath, usingBlendMode: kCGBlendModeSourceIn)
+        return self.compositeImage(maskPath, usingBlendMode: CGBlendMode.SourceIn)
     }
     
     func imageByMaskingToAreaOutsidePath(maskPath: UIBezierPath) -> UIImage
 {
-        return self.compositeImage(maskPath, usingBlendMode: kCGBlendModeSourceOut)
+        return self.compositeImage(maskPath, usingBlendMode: CGBlendMode.SourceOut)
     }
 
     func colorizeImageWithColor(color : UIColor) -> UIImage
@@ -79,7 +80,7 @@ public extension UIImage
         
         UIBezierPath(rect: area).fill()
         
-        self.drawAtPoint(CGPointZero, blendMode: kCGBlendModeMultiply, alpha: 1)
+        self.drawAtPoint(CGPointZero, blendMode: CGBlendMode.Multiply, alpha: 1)
 
         //        CGContextScaleCTM(context, 1, -1);
         //    CGContextTranslateCTM(context, 0, -area.size.height);

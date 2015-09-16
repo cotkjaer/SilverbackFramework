@@ -29,7 +29,13 @@
 		8F0655F81B1DD7BA00C30669 /* NSIndexPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0655F61B1DD77000C30669 /* NSIndexPath.swift */; };
 		8F0655FA1B1EEFAA00C30669 /* SIFetchedResultsControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0655F91B1EEFAA00C30669 /* SIFetchedResultsControllers.swift */; };
 		8F0655FB1B1EEFC000C30669 /* SIFetchedResultsControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0655F91B1EEFAA00C30669 /* SIFetchedResultsControllers.swift */; };
+		8F0C0AE11B826CEB00C87671 /* UIBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0C0AE01B826CEB00C87671 /* UIBezierPath.swift */; };
+		8F0E29121B8C50CF0054FE11 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0E29111B8C50CF0054FE11 /* MenuButton.swift */; };
 		8F14CC8A1B1C45EC00C94D4B /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F14CC891B1C45EC00C94D4B /* Queue.swift */; };
+		8F20F15F1B57B05100A1FC78 /* NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F20F15E1B57B05100A1FC78 /* NSUserDefaults.swift */; };
+		8F20F1601B57C06800A1FC78 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8F241AE50A0C00D17087 /* UIViewController.swift */; };
+		8F23BE411B5B767E002BECD8 /* SKPaymentTransactionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F23BE401B5B767E002BECD8 /* SKPaymentTransactionState.swift */; };
+		8F23BE441B5B7745002BECD8 /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F23BE431B5B7745002BECD8 /* ProductManager.swift */; };
 		8F2CFADA1B32AD9500BEEBFF /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2CFAD91B32AD9500BEEBFF /* Operators.swift */; };
 		8F2F5BFB1AE698CA00D0C267 /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2F5BFA1AE698CA00D0C267 /* NSManagedObject.swift */; };
 		8F2F5BFE1AE6C60800D0C267 /* SilverbackFramework.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F2F5BFC1AE6C60800D0C267 /* SilverbackFramework.xcdatamodeld */; };
@@ -56,6 +62,14 @@
 		8F2F5C211AE7041900D0C267 /* NSManagedObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2F5C1F1AE703E300D0C267 /* NSManagedObjectModel.swift */; };
 		8F2F5C231AE704B300D0C267 /* TestNSManagedObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2F5C221AE704B300D0C267 /* TestNSManagedObjectModel.swift */; };
 		8F2F5C251AE705D800D0C267 /* TestNSPersistentStoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2F5C241AE705D800D0C267 /* TestNSPersistentStoreCoordinator.swift */; };
+		8F3C91BB1B7B943100EDB7CB /* CGContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3C91BA1B7B943100EDB7CB /* CGContext.swift */; };
+		8F3C91BD1B7B94EE00EDB7CB /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3C91BC1B7B94EE00EDB7CB /* CircleView.swift */; };
+		8F3C91C01B7B952100EDB7CB /* CurvedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3C91BF1B7B952100EDB7CB /* CurvedLabel.swift */; };
+		8F46048A1B8C819500E68793 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4604891B8C819500E68793 /* UILabel.swift */; };
+		8F46048C1B8C81EC00E68793 /* RoundBorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F46048B1B8C81EC00E68793 /* RoundBorderedView.swift */; };
+		8F46048E1B8C855C00E68793 /* ItemsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F46048D1B8C855C00E68793 /* ItemsDataSource.swift */; };
+		8F4604901B8C858600E68793 /* NSNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F46048F1B8C858600E68793 /* NSNumberFormatter.swift */; };
+		8F4604921B8C85C600E68793 /* EKEventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4604911B8C85C600E68793 /* EKEventStore.swift */; };
 		8F46F2971AE63297001DF26E /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F46F2961AE63297001DF26E /* CoreDataTableViewController.swift */; };
 		8F46F29B1AE6441B001DF26E /* NSFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F46F29A1AE6441B001DF26E /* NSFetchedResultsController.swift */; };
 		8F46F2A91AE67E35001DF26E /* NSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F46F2A81AE67E35001DF26E /* NSObject.swift */; };
@@ -64,13 +78,25 @@
 		8F54B82F1AE7B06900331B5C /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F46F2961AE63297001DF26E /* CoreDataTableViewController.swift */; };
 		8F54B8311AE7B0B400331B5C /* NSFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F46F29A1AE6441B001DF26E /* NSFetchedResultsController.swift */; };
 		8F54B8331AE7D52E00331B5C /* NSFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F54B8321AE7D52E00331B5C /* NSFetchRequest.swift */; };
+		8F5786401B79DC8300B3E5C8 /* UIBezierPath+Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F57863F1B79DC8300B3E5C8 /* UIBezierPath+Polygon.swift */; };
 		8F586B5C1AE528E8008B7E85 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F586B5B1AE528E8008B7E85 /* Bool.swift */; };
 		8F586B601AE52A0A008B7E85 /* Set.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F586B5F1AE52A0A008B7E85 /* Set.swift */; };
 		8F586B641AE52CEE008B7E85 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F586B631AE52CEE008B7E85 /* Double.swift */; };
 		8F586B661AE52F76008B7E85 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F586B651AE52F76008B7E85 /* Int.swift */; };
 		8F623B801B274A35007ED830 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F623B7F1B274A35007ED830 /* UIView.swift */; };
+		8F6975101B3FDB0D00F082F5 /* NSCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F69750F1B3FDB0D00F082F5 /* NSCalendar.swift */; };
+		8F6A755F1B4288D000174244 /* HexagonCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6A755E1B4288D000174244 /* HexagonCollectionViewFlowLayout.swift */; };
+		8F6D35641B834CC4001711CA /* BezierCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6D35631B834CC4001711CA /* BezierCurve.swift */; };
+		8F7C14131B58D8200046BB9B /* NotificationHandlerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7C14121B58D8200046BB9B /* NotificationHandlerManager.swift */; };
 		8F7F7AB31AE56B5B003506C6 /* NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F7AB21AE56B5B003506C6 /* NSString.swift */; };
-		8FA367251B3003B600106299 /* SortedCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA367241B3003B600106299 /* SortedCollection.swift */; };
+		8FAC74451B43F768006822E1 /* HexCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAC74441B43F768006822E1 /* HexCollectionViewLayout.swift */; };
+		8FAC74471B4532C8006822E1 /* HexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAC74461B4532C8006822E1 /* HexView.swift */; };
+		8FAC74491B453362006822E1 /* UIBezierPath+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAC74481B453362006822E1 /* UIBezierPath+Hex.swift */; };
+		8FAC744C1B4539D0006822E1 /* Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAC744B1B4539D0006822E1 /* Hex.swift */; };
+		8FB6CFA21B9859FB008F7F3B /* Bit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6CFA11B9859FB008F7F3B /* Bit.swift */; };
+		8FB6CFA31B9859FB008F7F3B /* Bit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6CFA11B9859FB008F7F3B /* Bit.swift */; };
+		8FB6CFA51B985B52008F7F3B /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6CFA41B985B52008F7F3B /* StringTests.swift */; };
+		8FB6CFA71B985F7F008F7F3B /* BitBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB6CFA61B985F7F008F7F3B /* BitBufferTests.swift */; };
 		8FD11E021B3FBBBC000F1200 /* PagingCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD11E011B3FBBBC000F1200 /* PagingCollectionViewFlowLayout.swift */; };
 		8FDB8EEF1AE4E73C00D17087 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EEE1AE4E73C00D17087 /* CGFloat.swift */; };
 		8FDB8EF11AE4E95000D17087 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDB8EF01AE4E95000D17087 /* CGPoint.swift */; };
@@ -132,7 +158,12 @@
 		8F0655E21B1DCD1400C30669 /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		8F0655F61B1DD77000C30669 /* NSIndexPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSIndexPath.swift; sourceTree = "<group>"; };
 		8F0655F91B1EEFAA00C30669 /* SIFetchedResultsControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SIFetchedResultsControllers.swift; sourceTree = "<group>"; };
+		8F0C0AE01B826CEB00C87671 /* UIBezierPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPath.swift; sourceTree = "<group>"; };
+		8F0E29111B8C50CF0054FE11 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		8F14CC891B1C45EC00C94D4B /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		8F20F15E1B57B05100A1FC78 /* NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaults.swift; sourceTree = "<group>"; };
+		8F23BE401B5B767E002BECD8 /* SKPaymentTransactionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKPaymentTransactionState.swift; sourceTree = "<group>"; };
+		8F23BE431B5B7745002BECD8 /* ProductManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
 		8F2CFAD91B32AD9500BEEBFF /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		8F2F5BFA1AE698CA00D0C267 /* NSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		8F2F5BFD1AE6C60800D0C267 /* SilverbackFramework.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SilverbackFramework.xcdatamodel; sourceTree = "<group>"; };
@@ -147,19 +178,38 @@
 		8F2F5C1F1AE703E300D0C267 /* NSManagedObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSManagedObjectModel.swift; sourceTree = "<group>"; };
 		8F2F5C221AE704B300D0C267 /* TestNSManagedObjectModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNSManagedObjectModel.swift; sourceTree = "<group>"; };
 		8F2F5C241AE705D800D0C267 /* TestNSPersistentStoreCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNSPersistentStoreCoordinator.swift; sourceTree = "<group>"; };
+		8F3C91BA1B7B943100EDB7CB /* CGContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGContext.swift; sourceTree = "<group>"; };
+		8F3C91BC1B7B94EE00EDB7CB /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		8F3C91BF1B7B952100EDB7CB /* CurvedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurvedLabel.swift; sourceTree = "<group>"; };
+		8F4604891B8C819500E68793 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		8F46048B1B8C81EC00E68793 /* RoundBorderedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundBorderedView.swift; sourceTree = "<group>"; };
+		8F46048D1B8C855C00E68793 /* ItemsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsDataSource.swift; sourceTree = "<group>"; };
+		8F46048F1B8C858600E68793 /* NSNumberFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberFormatter.swift; sourceTree = "<group>"; };
+		8F4604911B8C85C600E68793 /* EKEventStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EKEventStore.swift; sourceTree = "<group>"; };
 		8F46F2961AE63297001DF26E /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		8F46F29A1AE6441B001DF26E /* NSFetchedResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFetchedResultsController.swift; sourceTree = "<group>"; };
 		8F46F2A81AE67E35001DF26E /* NSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObject.swift; sourceTree = "<group>"; };
 		8F46F2AA1AE67E76001DF26E /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		8F46F2AC1AE68597001DF26E /* NSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
 		8F54B8321AE7D52E00331B5C /* NSFetchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFetchRequest.swift; sourceTree = "<group>"; };
+		8F57863F1B79DC8300B3E5C8 /* UIBezierPath+Polygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Polygon.swift"; sourceTree = "<group>"; };
 		8F586B5B1AE528E8008B7E85 /* Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		8F586B5F1AE52A0A008B7E85 /* Set.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Set.swift; sourceTree = "<group>"; };
 		8F586B631AE52CEE008B7E85 /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		8F586B651AE52F76008B7E85 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		8F623B7F1B274A35007ED830 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		8F69750F1B3FDB0D00F082F5 /* NSCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCalendar.swift; sourceTree = "<group>"; };
+		8F6A755E1B4288D000174244 /* HexagonCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexagonCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		8F6D35631B834CC4001711CA /* BezierCurve.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierCurve.swift; sourceTree = "<group>"; };
+		8F7C14121B58D8200046BB9B /* NotificationHandlerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationHandlerManager.swift; sourceTree = "<group>"; };
 		8F7F7AB21AE56B5B003506C6 /* NSString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSString.swift; sourceTree = "<group>"; };
-		8FA367241B3003B600106299 /* SortedCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortedCollection.swift; sourceTree = "<group>"; };
+		8FAC74441B43F768006822E1 /* HexCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexCollectionViewLayout.swift; sourceTree = "<group>"; };
+		8FAC74461B4532C8006822E1 /* HexView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexView.swift; sourceTree = "<group>"; };
+		8FAC74481B453362006822E1 /* UIBezierPath+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Hex.swift"; sourceTree = "<group>"; };
+		8FAC744B1B4539D0006822E1 /* Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hex.swift; sourceTree = "<group>"; };
+		8FB6CFA11B9859FB008F7F3B /* Bit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bit.swift; sourceTree = "<group>"; };
+		8FB6CFA41B985B52008F7F3B /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		8FB6CFA61B985F7F008F7F3B /* BitBufferTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitBufferTests.swift; sourceTree = "<group>"; };
 		8FD11E011B3FBBBC000F1200 /* PagingCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		8FDB8EEE1AE4E73C00D17087 /* CGFloat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		8FDB8EF01AE4E95000D17087 /* CGPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
@@ -231,26 +281,38 @@
 		8F040C3E1AE4DF1B00A3411D /* SilverbackFramework */ = {
 			isa = PBXGroup;
 			children = (
-				8FDB8F101AE4F9C300D17087 /* CALayer.swift */,
+				8F4604931B8C865600E68793 /* CoreAnimation */,
 				8F586B5E1AE52998008B7E85 /* CoreGraphics */,
 				8F2F5C031AE6C7C800D0C267 /* CoreData */,
 				8F586B5D1AE52986008B7E85 /* Foundation */,
 				8FDB8F261AE50AE800D17087 /* NSCharacterSet.swift */,
+				8F4604911B8C85C600E68793 /* EKEventStore.swift */,
 				8FDB8F181AE4FD2300D17087 /* NSDate.swift */,
+				8F69750F1B3FDB0D00F082F5 /* NSCalendar.swift */,
 				8F7F7AB21AE56B5B003506C6 /* NSString.swift */,
 				8FDB8F281AE510EF00D17087 /* NSIndexSet.swift */,
 				8F0655F61B1DD77000C30669 /* NSIndexPath.swift */,
+				8F20F15E1B57B05100A1FC78 /* NSUserDefaults.swift */,
 				8F040C411AE4DF1B00A3411D /* SilverbackFramework.h */,
 				8F040C3F1AE4DF1B00A3411D /* Supporting Files */,
 				8F040C581AE4E1A700A3411D /* UIColor.swift */,
+				8F5786411B79DC8A00B3E5C8 /* Polygon */,
+				8FAC744A1B453972006822E1 /* Hex */,
 				8FDB8F221AE5080B00D17087 /* UIImage.swift */,
+				8F0C0AE01B826CEB00C87671 /* UIBezierPath.swift */,
+				8F6D35631B834CC4001711CA /* BezierCurve.swift */,
 				8FDB8F241AE50A0C00D17087 /* UIViewController.swift */,
 				8F623B7F1B274A35007ED830 /* UIView.swift */,
-				8FA367241B3003B600106299 /* SortedCollection.swift */,
+				8F4604891B8C819500E68793 /* UILabel.swift */,
 				8F0655E21B1DCD1400C30669 /* UICollectionView.swift */,
 				8FD11E011B3FBBBC000F1200 /* PagingCollectionViewFlowLayout.swift */,
+				8F46048F1B8C858600E68793 /* NSNumberFormatter.swift */,
 				8F46F2A81AE67E35001DF26E /* NSObject.swift */,
 				8F46F2AC1AE68597001DF26E /* NSError.swift */,
+				8F7C14121B58D8200046BB9B /* NotificationHandlerManager.swift */,
+				8F46048D1B8C855C00E68793 /* ItemsDataSource.swift */,
+				8F3C91BE1B7B94F400EDB7CB /* Views */,
+				8F23BE421B5B76F4002BECD8 /* StoreKit */,
 			);
 			path = SilverbackFramework;
 			sourceTree = "<group>";
@@ -268,6 +330,8 @@
 			children = (
 				8F040C4C1AE4DF1B00A3411D /* Supporting Files */,
 				8F040C5C1AE4E37A00A3411D /* RandomTest.swift */,
+				8FB6CFA41B985B52008F7F3B /* StringTests.swift */,
+				8FB6CFA61B985F7F008F7F3B /* BitBufferTests.swift */,
 				8FDB8F001AE4EF3D00D17087 /* CGFloatTest.swift */,
 				8FDB8F041AE4F35E00D17087 /* FloatTest.swift */,
 				8FDB8F151AE4FB6E00D17087 /* TestFoundation.swift */,
@@ -289,6 +353,15 @@
 				8F040C4D1AE4DF1B00A3411D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8F23BE421B5B76F4002BECD8 /* StoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				8F23BE431B5B7745002BECD8 /* ProductManager.swift */,
+				8F23BE401B5B767E002BECD8 /* SKPaymentTransactionState.swift */,
+			);
+			name = StoreKit;
 			sourceTree = "<group>";
 		};
 		8F2F5C031AE6C7C800D0C267 /* CoreData */ = {
@@ -320,6 +393,33 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		8F3C91BE1B7B94F400EDB7CB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F3C91BC1B7B94EE00EDB7CB /* CircleView.swift */,
+				8F3C91BF1B7B952100EDB7CB /* CurvedLabel.swift */,
+				8F0E29111B8C50CF0054FE11 /* MenuButton.swift */,
+				8F46048B1B8C81EC00E68793 /* RoundBorderedView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		8F4604931B8C865600E68793 /* CoreAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				8FDB8F101AE4F9C300D17087 /* CALayer.swift */,
+			);
+			name = CoreAnimation;
+			sourceTree = "<group>";
+		};
+		8F5786411B79DC8A00B3E5C8 /* Polygon */ = {
+			isa = PBXGroup;
+			children = (
+				8F57863F1B79DC8300B3E5C8 /* UIBezierPath+Polygon.swift */,
+			);
+			name = Polygon;
+			sourceTree = "<group>";
+		};
 		8F586B5D1AE52986008B7E85 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +434,7 @@
 				8F586B631AE52CEE008B7E85 /* Double.swift */,
 				8F586B651AE52F76008B7E85 /* Int.swift */,
 				8F2CFAD91B32AD9500BEEBFF /* Operators.swift */,
+				8FB6CFA11B9859FB008F7F3B /* Bit.swift */,
 			);
 			name = Foundation;
 			sourceTree = "<group>";
@@ -347,8 +448,21 @@
 				8FDB8EFC1AE4EDE400D17087 /* CGRect.swift */,
 				8FDB8EFA1AE4ED6600D17087 /* CGSize.swift */,
 				8FDB8EF21AE4EC2000D17087 /* CGVector.swift */,
+				8F3C91BA1B7B943100EDB7CB /* CGContext.swift */,
 			);
 			name = CoreGraphics;
+			sourceTree = "<group>";
+		};
+		8FAC744A1B453972006822E1 /* Hex */ = {
+			isa = PBXGroup;
+			children = (
+				8FAC74481B453362006822E1 /* UIBezierPath+Hex.swift */,
+				8F6A755E1B4288D000174244 /* HexagonCollectionViewFlowLayout.swift */,
+				8FAC74441B43F768006822E1 /* HexCollectionViewLayout.swift */,
+				8FAC74461B4532C8006822E1 /* HexView.swift */,
+				8FAC744B1B4539D0006822E1 /* Hex.swift */,
+			);
+			name = Hex;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,7 +521,9 @@
 		8F040C331AE4DF1B00A3411D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Christian Otkjær";
 				TargetAttributes = {
 					8F040C3B1AE4DF1B00A3411D = {
@@ -461,15 +577,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FAC74491B453362006822E1 /* UIBezierPath+Hex.swift in Sources */,
 				8F586B601AE52A0A008B7E85 /* Set.swift in Sources */,
 				8F2F5C011AE6C63500D0C267 /* CoreDataStore.swift in Sources */,
 				8FDB8EFF1AE4EE1A00D17087 /* CGAffineTransform.swift in Sources */,
 				8F2F5C131AE6D98A00D0C267 /* ContainerExtensions.swift in Sources */,
+				8F6975101B3FDB0D00F082F5 /* NSCalendar.swift in Sources */,
 				8F2F5C1D1AE702DB00D0C267 /* NSPersistentStoreCoordinator.swift in Sources */,
+				8FB6CFA21B9859FB008F7F3B /* Bit.swift in Sources */,
 				8F46F2971AE63297001DF26E /* CoreDataTableViewController.swift in Sources */,
 				8F46F2AB1AE67E76001DF26E /* CoreDataStack.swift in Sources */,
+				8FAC74471B4532C8006822E1 /* HexView.swift in Sources */,
+				8F4604901B8C858600E68793 /* NSNumberFormatter.swift in Sources */,
 				8FDB8F1E1AE503BF00D17087 /* String.swift in Sources */,
-				8FA367251B3003B600106299 /* SortedCollection.swift in Sources */,
+				8F7C14131B58D8200046BB9B /* NotificationHandlerManager.swift in Sources */,
 				8FDB8EF11AE4E95000D17087 /* CGPoint.swift in Sources */,
 				8F0655FA1B1EEFAA00C30669 /* SIFetchedResultsControllers.swift in Sources */,
 				8FDB8EEF1AE4E73C00D17087 /* CGFloat.swift in Sources */,
@@ -478,8 +599,12 @@
 				8F586B661AE52F76008B7E85 /* Int.swift in Sources */,
 				8F0655F71B1DD77000C30669 /* NSIndexPath.swift in Sources */,
 				8F54B8331AE7D52E00331B5C /* NSFetchRequest.swift in Sources */,
+				8F4604921B8C85C600E68793 /* EKEventStore.swift in Sources */,
+				8F0E29121B8C50CF0054FE11 /* MenuButton.swift in Sources */,
 				8FD11E021B3FBBBC000F1200 /* PagingCollectionViewFlowLayout.swift in Sources */,
 				8F2F5C201AE703E300D0C267 /* NSManagedObjectModel.swift in Sources */,
+				8F23BE411B5B767E002BECD8 /* SKPaymentTransactionState.swift in Sources */,
+				8F46048E1B8C855C00E68793 /* ItemsDataSource.swift in Sources */,
 				8FDB8F031AE4F11D00D17087 /* Float.swift in Sources */,
 				8F040C5B1AE4E26000A3411D /* Random.swift in Sources */,
 				8F46F29B1AE6441B001DF26E /* NSFetchedResultsController.swift in Sources */,
@@ -489,21 +614,34 @@
 				8F040C591AE4E1A700A3411D /* UIColor.swift in Sources */,
 				8F623B801B274A35007ED830 /* UIView.swift in Sources */,
 				8F14CC8A1B1C45EC00C94D4B /* Queue.swift in Sources */,
+				8F0C0AE11B826CEB00C87671 /* UIBezierPath.swift in Sources */,
+				8F5786401B79DC8300B3E5C8 /* UIBezierPath+Polygon.swift in Sources */,
 				8F2CFADA1B32AD9500BEEBFF /* Operators.swift in Sources */,
 				8F586B5C1AE528E8008B7E85 /* Bool.swift in Sources */,
 				8F2F5C091AE6C8E100D0C267 /* Element.swift in Sources */,
 				8F586B641AE52CEE008B7E85 /* Double.swift in Sources */,
 				8FDB8EFD1AE4EDE400D17087 /* CGRect.swift in Sources */,
 				8FDB8F291AE510EF00D17087 /* NSIndexSet.swift in Sources */,
+				8FAC744C1B4539D0006822E1 /* Hex.swift in Sources */,
 				8F0655E31B1DCD1400C30669 /* UICollectionView.swift in Sources */,
 				8FDB8F191AE4FD2300D17087 /* NSDate.swift in Sources */,
 				8F46F2A91AE67E35001DF26E /* NSObject.swift in Sources */,
 				8F2F5BFB1AE698CA00D0C267 /* NSManagedObject.swift in Sources */,
+				8F6A755F1B4288D000174244 /* HexagonCollectionViewFlowLayout.swift in Sources */,
 				8F2F5BFE1AE6C60800D0C267 /* SilverbackFramework.xcdatamodeld in Sources */,
 				8F46F2AD1AE68597001DF26E /* NSError.swift in Sources */,
+				8F6D35641B834CC4001711CA /* BezierCurve.swift in Sources */,
+				8FAC74451B43F768006822E1 /* HexCollectionViewLayout.swift in Sources */,
 				8F7F7AB31AE56B5B003506C6 /* NSString.swift in Sources */,
+				8F3C91BD1B7B94EE00EDB7CB /* CircleView.swift in Sources */,
+				8F20F15F1B57B05100A1FC78 /* NSUserDefaults.swift in Sources */,
+				8F3C91BB1B7B943100EDB7CB /* CGContext.swift in Sources */,
+				8F3C91C01B7B952100EDB7CB /* CurvedLabel.swift in Sources */,
 				8FDB8F111AE4F9C300D17087 /* CALayer.swift in Sources */,
+				8F23BE441B5B7745002BECD8 /* ProductManager.swift in Sources */,
+				8F46048A1B8C819500E68793 /* UILabel.swift in Sources */,
 				8FDB8F231AE5080B00D17087 /* UIImage.swift in Sources */,
+				8F46048C1B8C81EC00E68793 /* RoundBorderedView.swift in Sources */,
 				8F2F5C0C1AE6C8E100D0C267 /* Container.swift in Sources */,
 				8FDB8F251AE50A0C00D17087 /* UIViewController.swift in Sources */,
 				8F2F5C161AE6DA7300D0C267 /* NSManagedObjectContext.swift in Sources */,
@@ -516,10 +654,13 @@
 			files = (
 				8FDB8F1C1AE4FE5B00D17087 /* TestNSDate.swift in Sources */,
 				8F2F5C251AE705D800D0C267 /* TestNSPersistentStoreCoordinator.swift in Sources */,
+				8FB6CFA51B985B52008F7F3B /* StringTests.swift in Sources */,
 				8F2F5C181AE6EE1F00D0C267 /* NSError.swift in Sources */,
 				8F0655F51B1DD51900C30669 /* Int.swift in Sources */,
+				8F20F1601B57C06800A1FC78 /* UIViewController.swift in Sources */,
 				8F0655F81B1DD7BA00C30669 /* NSIndexPath.swift in Sources */,
 				8FDB8F061AE4F3D300D17087 /* CGFloat.swift in Sources */,
+				8FB6CFA31B9859FB008F7F3B /* Bit.swift in Sources */,
 				8F2F5C0F1AE6C91800D0C267 /* TestCoreDataStore.swift in Sources */,
 				8F0655EF1B1DD51900C30669 /* Foundation.swift in Sources */,
 				8F2F5C101AE6D72700D0C267 /* NSManagedObject.swift in Sources */,
@@ -546,6 +687,7 @@
 				8F2F5C111AE6D83200D0C267 /* NSObject.swift in Sources */,
 				8F0655F21B1DD51900C30669 /* Array.swift in Sources */,
 				8F2F5C171AE6DC0500D0C267 /* NSManagedObjectContext.swift in Sources */,
+				8FB6CFA71B985F7F008F7F3B /* BitBufferTests.swift in Sources */,
 				8F2F5C1E1AE702F200D0C267 /* NSPersistentStoreCoordinator.swift in Sources */,
 				8F2F5C1B1AE7001A00D0C267 /* TestCoreDataStack.swift in Sources */,
 				8FF41D681AE70835009DCFE0 /* TestNSManagedObjectContext.swift in Sources */,
@@ -599,6 +741,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -677,6 +820,7 @@
 				INFOPLIST_FILE = SilverbackFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -694,6 +838,7 @@
 				INFOPLIST_FILE = SilverbackFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -712,6 +857,7 @@
 				);
 				INFOPLIST_FILE = SilverbackFrameworkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -725,6 +871,7 @@
 				);
 				INFOPLIST_FILE = SilverbackFrameworkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.silverback-it.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

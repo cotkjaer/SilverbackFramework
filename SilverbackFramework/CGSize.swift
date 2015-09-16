@@ -12,45 +12,45 @@ import CoreGraphics
 
 extension CGSize
 {
-    public init(_ width: CGFloat, _ height: CGFloat)
-{
-        self.width = width
-        self.height = height
+    public init(widthAndHeight: CGFloat)
+    {
+        self.width = widthAndHeight
+        self.height = widthAndHeight
     }
     
     // MARK: with
     
-    public func with(# width: CGFloat) -> CGSize
-{
-        return CGSize(width, height)
+    public func with(width  width: CGFloat) -> CGSize
+    {
+        return CGSize(width: width, height: height)
     }
     
-    public func with(# height: CGFloat) -> CGSize
-{
-        return CGSize(width, height)
+    public func with(height  height: CGFloat) -> CGSize
+    {
+        return CGSize(width: width, height: height)
     }
 }
 
 // MARK: Equatable
-
-extension CGSize: Equatable
-{
-    public func isEqualTo(size:CGSize) -> Bool
-{
-        return self == size
-    }
-}
-
-public func == (s1: CGSize, s2: CGSize) -> Bool
-{
-    return s1.width == s2.width && s1.height == s2.height
-}
+//
+//extension CGSize//: Equatable
+//{
+//    public func isEqualTo(size:CGSize) -> Bool
+//    {
+//        return self == size
+//    }
+//}
+//
+//public func == (s1: CGSize, s2: CGSize) -> Bool
+//{
+//    return s1.width == s2.width && s1.height == s2.height
+//}
 
 // MARK: operators
 
 public func + (s1: CGSize, s2: CGSize) -> CGSize
 {
-    return CGSize(s1.width + s2.width, s1.height + s2.height)
+    return CGSize(width: s1.width + s2.width, height: s1.height + s2.height)
 }
 
 public func += (inout s1: CGSize, s2: CGSize)
@@ -61,7 +61,7 @@ public func += (inout s1: CGSize, s2: CGSize)
 
 public func - (s1: CGSize, s2: CGSize) -> CGSize
 {
-    return CGSize(s1.width - s2.width, s1.height - s2.height)
+    return CGSize(width: s1.width - s2.width, height: s1.height - s2.height)
 }
 
 public func -= (inout s1: CGSize, s2: CGSize)
@@ -72,7 +72,7 @@ public func -= (inout s1: CGSize, s2: CGSize)
 
 public func * (size: CGSize, factor: CGFloat) -> CGSize
 {
-    return CGSize(size.width * factor, size.height * factor)
+    return CGSize(width: size.width * factor, height: size.height * factor)
 }
 
 public func * (factor: CGFloat, size: CGSize) -> CGSize
@@ -88,7 +88,7 @@ public func *= (inout size: CGSize, factor: CGFloat)
 
 public func / (size: CGSize, factor: CGFloat) -> CGSize
 {
-    return CGSize(size.width / factor, size.height / factor)
+    return CGSize(width: size.width / factor, height: size.height / factor)
 }
 
 public func /= (inout size: CGSize, factor: CGFloat)

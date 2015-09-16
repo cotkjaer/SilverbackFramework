@@ -25,33 +25,46 @@ public enum NSPersistentStoreType
             }
     }
     
-    private func persistentStoreFileURL(modelName: String, fileExtension: String, error: NSErrorPointer = nil) -> NSURL?
+    private func persistentStoreFileURL(modelName: String, fileExtension: String) throws -> NSURL
     {
-        if let documentsDirectoryURL = NSFileManager.defaultManager().URLForDirectory(.DocumentDirectory,
-            inDomain: .UserDomainMask, appropriateForURL: nil, create: true, error: error)
-        {
+        var error: NSError! = NSError(domain: "Migrator", code: 0, userInfo: nil)
+        do {
+            let documentsDirectoryURL = try NSFileManager.defaultManager().URLForDirectory(.DocumentDirectory,
+                inDomain: .UserDomainMask, appropriateForURL: nil, create: true)
             return documentsDirectoryURL.URLByAppendingPathComponent(modelName + "." + fileExtension)
+        } catch let error1 as NSError {
+            error = error1
         }
         
-        return nil
+        throw error
     }
     
-    internal func persistentStoreFileURL(modelName: String, error: NSErrorPointer = nil) -> NSURL?
+    internal func persistentStoreFileURL(modelName: String) throws -> NSURL
     {
+        let error: NSError! = NSError(domain: "Migrator", code: 0, userInfo: nil)
         switch self
         {
         case .SQLite:
-            return persistentStoreFileURL(modelName, fileExtension: "sqlite")
+            do {
+                return try persistentStoreFileURL(modelName, fileExtension: "sqlite")
+            } catch _ {
+                throw error
+            }
         case .InMemory:
-            return nil
+            throw error
         case .Binary:
-            return persistentStoreFileURL(modelName, fileExtension: "sqlite")
+            do {
+                return try persistentStoreFileURL(modelName, fileExtension: "sqlite")
+            } catch _ {
+                throw error
+            }
         }
     }
 }
 
-func managedObjectModelWithName(name: String?, inBundle bundle: NSBundle?, error: NSErrorPointer = nil) -> NSManagedObjectModel?
+func managedObjectModelWithName(name: String?, inBundle bundle: NSBundle?) throws -> NSManagedObjectModel
 {
+    var error: NSError! = NSError(domain: "Migrator", code: 0, userInfo: nil)
     let realBundle = (bundle ?? NSBundle.mainBundle())
     
     if let modelName = name
@@ -62,14 +75,12 @@ func managedObjectModelWithName(name: String?, inBundle bundle: NSBundle?, error
             {
                 return model
             }
-            else if error != nil
-            {
-                error.memory = NSError(domain: "NSPersistentStoreCoordinator", code: 2, description: "Failed to create NSPersistentStoreCoordinator", reason: "Could not create ManagedObject model from URL \(modelURL)", underlyingError: nil)
+            else {
+                error = NSError(domain: "NSPersistentStoreCoordinator", code: 2, description: "Failed to create NSPersistentStoreCoordinator", reason: "Could not create ManagedObject model from URL \(modelURL)", underlyingError: nil)
             }
         }
-        else if error != nil
-        {
-            error.memory = NSError(domain: "NSPersistentStoreCoordinator", code: 1, description: "Failed to create NSPersistentStoreCoordinator", reason: "Could not find ManagedObject model called \(modelName) in \(realBundle)", underlyingError: nil)
+        else {
+            error = NSError(domain: "NSPersistentStoreCoordinator", code: 1, description: "Failed to create NSPersistentStoreCoordinator", reason: "Could not find ManagedObject model called \(modelName) in \(realBundle)", underlyingError: nil)
         }
     }
     else
@@ -78,45 +89,45 @@ func managedObjectModelWithName(name: String?, inBundle bundle: NSBundle?, error
         {
             return model
         }
-        else if error != nil
-        {
-            error.memory = NSError(domain: "NSPersistentStoreCoordinator", code: 1, description: "Failed to create NSPersistentStoreCoordinator", reason: "Could not merge a ManagedObject model in \(realBundle)", underlyingError: nil)
+        else {
+            error = NSError(domain: "NSPersistentStoreCoordinator", code: 1, description: "Failed to create NSPersistentStoreCoordinator", reason: "Could not merge a ManagedObject model in \(realBundle)", underlyingError: nil)
         }
     }
     
-    return nil
+    throw error
 }
 
 extension NSPersistentStoreCoordinator
 {
-    public convenience init?(modelName: String? = nil, inBundle bundle: NSBundle? = nil, storeType: NSPersistentStoreType = .SQLite, error: NSErrorPointer = nil)
+    public convenience init(modelName: String? = nil, inBundle bundle: NSBundle? = nil, storeType: NSPersistentStoreType = .SQLite) throws
     {
-        if let model = managedObjectModelWithName(modelName, inBundle: bundle, error: error)
-        {
+        var error: NSError! = NSError(domain: "Migrator", code: 0, userInfo: nil)
+        do {
+            let model = try managedObjectModelWithName(modelName, inBundle: bundle)
             self.init(managedObjectModel: model)
             
             var internalError: NSError? = nil
             
-            if self.addPersistentStoreWithType(
-                storeType.persistentStoreType,
-                configuration: nil,
-                URL: storeType.persistentStoreFileURL(modelName ?? "store"),
-                options: nil,
-                error: &internalError) == nil
-            {
-                if error != nil
-                {
-                    error.memory = NSError(domain: "NSPersistentStoreCoordinator", code: 3, description: "Failed to create NSPersistentStoreCoordinator", reason: "Could not create Persistent Store", underlyingError: internalError)
-                }
+            do {
+                try self.addPersistentStoreWithType(
+                                storeType.persistentStoreType,
+                                configuration: nil,
+                                URL: storeType.persistentStoreFileURL(modelName ?? "store"),
+                                options: nil)
+            } catch let error1 as NSError {
+                internalError = error1
+                error = NSError(domain: "NSPersistentStoreCoordinator", code: 3, description: "Failed to create NSPersistentStoreCoordinator", reason: "Could not create Persistent Store", underlyingError: internalError)
             }
             
             return
+        } catch let error1 as NSError {
+            error = error1
         }
         
-        //Dummy init to satisfy compiler
-        self.init(managedObjectModel: NSManagedObjectModel())
-        
-        return nil
+//        //Dummy init to satisfy compiler
+//        self.init(managedObjectModel: NSManagedObjectModel())
+//        
+        throw error
     }
 }
 

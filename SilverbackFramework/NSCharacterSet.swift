@@ -11,17 +11,17 @@ import Foundation
 extension NSCharacterSet
 {
     var characters : [Character]
-{
-        var chars : [Character] = []
-        
-        for var c : unichar = unichar.min; c < unichar.max; c++
-{
-            if characterIsMember(c)
-{
-                chars.append(Character(UnicodeScalar(c)))
+        {
+            var chars : [Character] = []
+            
+            for var c : unichar = unichar.min; c < unichar.max; c++
+            {
+                if characterIsMember(c)
+                {
+                    chars.append(Character(UnicodeScalar(c)))
+                }
             }
-        }
-        
-        return chars
+            
+            return chars
     }
 }

@@ -11,15 +11,20 @@ import UIKit
 extension CALayer
 {
     public var image : UIImage
-{
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, opaque, 0)
-        
-        renderInContext(UIGraphicsGetCurrentContext())
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext();
-        
-        UIGraphicsEndImageContext()
-        
-        return image
+        {
+            UIGraphicsBeginImageContextWithOptions(self.bounds.size, opaque, 0)
+            
+            if let context = UIGraphicsGetCurrentContext()
+            {
+                renderInContext(context)
+                
+                let image = UIGraphicsGetImageFromCurrentImageContext();
+                
+                UIGraphicsEndImageContext()
+                
+                return image
+            }
+            
+            preconditionFailure("No Context")
     }
 }

@@ -54,7 +54,7 @@ extension Queue
     
     mutating public func dequeue() -> T?
     {
-        if let value = firstNode?.value
+        if let _ = firstNode?.value
         {
             firstNode = firstNode?.next
             
@@ -125,7 +125,7 @@ extension Queue: MutableCollectionType
         }
     }
     
-    typealias Generator = IndexingGenerator<Queue>
+    public typealias Generator = IndexingGenerator<Queue>
     public func generate() -> Generator
     {
         return Generator(self)
@@ -133,8 +133,12 @@ extension Queue: MutableCollectionType
 }
 
 // init() and append() requirements are already covered
-extension Queue: ExtensibleCollectionType
+extension Queue: RangeReplaceableCollectionType
 {
+    public mutating func replaceRange<C : CollectionType where C.Generator.Element == Generator.Element>(subRange: Range<Queue.Index>, with newElements: C) {
+        preconditionFailure("TODO: implement")
+    }
+    
     public func reserveCapacity(n: Index.Distance)
     {
         // do nothing
@@ -160,11 +164,20 @@ extension Queue: ArrayLiteralConvertible
     }
 }
 
-extension Queue: Printable
+extension Queue: CustomStringConvertible
 {
     // pretty easy given conformance to CollectionType
     public var description: String
         {
-            return "[" + ", ".join(map(self,toString)) + "]"
+           return String( map { (t) -> String in
+                if t is CustomStringConvertible
+                {
+                    return (t as! CustomStringConvertible).description
+                }
+                
+                return "."
+            })
+            
+//            return "[" + ", ".join(self.map(String.init)) + "]"
     }
 }

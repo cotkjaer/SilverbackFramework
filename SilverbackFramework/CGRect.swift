@@ -1,9 +1,9 @@
 //
-//  CGRect.swift
-//  SilverbackFramework
+// CGRect.swift
+// SilverbackFramework
 //
-//  Created by Christian Otkjær on 20/04/15.
-//  Copyright (c) 2015 Christian Otkjær. All rights reserved.
+// Created by Christian Otkjær on 20/04/15.
+// Copyright (c) 2015 Christian Otkjær. All rights reserved.
 //
 
 import CoreGraphics
@@ -12,15 +12,21 @@ import CoreGraphics
 
 extension CGRect
 {
-    public init(center c: CGPoint, size s: CGSize)
+    public init(size: CGSize)
     {
-        origin = c - (s / 2)
-        size = s
+        origin = CGPointZero
+        self.size = size
+    }
+    
+    public init(center: CGPoint, size: CGSize)
+    {
+        origin = center - (size / 2)
+        self.size = size
     }
     
     public var center: CGPoint
         {
-        get { return CGPoint(centerX, centerY) }
+        get { return CGPoint(x: centerX, y: centerY) }
         set { centerX = newValue.x; centerY = newValue.y }
     }
     
@@ -77,7 +83,7 @@ extension CGRect
         get { return y + height }
         set { y = newValue - height }
     }
-
+    
     // MARK: CGRectGet...
     
     public var minX : CGFloat { get { return CGRectGetMinX(self) } }
@@ -87,7 +93,7 @@ extension CGRect
     public var minY : CGFloat { get { return CGRectGetMinY(self) } }
     public var midY : CGFloat { get { return CGRectGetMidY(self) } }
     public var maxY : CGFloat { get { return CGRectGetMaxY(self) } }
-
+    
     // MARK: Contains
     
     public func contains(point: CGPoint) -> Bool
@@ -109,76 +115,76 @@ extension CGRect
     
     // MARK: with
     
-    public func with(# origin: CGPoint) -> CGRect
+    public func with(origin origin: CGPoint) -> CGRect
     {
         return CGRect(origin: origin, size: size)
     }
     
-    public func with(# center: CGPoint) -> CGRect
+    public func with(center center: CGPoint) -> CGRect
     {
         return CGRect(center: center, size: size)
     }
     
-    public func with(# x: CGFloat, y: CGFloat) -> CGRect
+    public func with(x x: CGFloat, y: CGFloat) -> CGRect
     {
-        return with(origin: CGPoint(x, y))
+        return with(origin: CGPoint(x: x, y: y))
     }
     
-    public func with(# x: CGFloat) -> CGRect
-    {
-        return with(x: x, y: y)
-    }
-    
-    public func with(# y: CGFloat) -> CGRect
+    public func with(x x: CGFloat) -> CGRect
     {
         return with(x: x, y: y)
     }
     
-    public func with(# size: CGSize) -> CGRect
+    public func with(y y: CGFloat) -> CGRect
+    {
+        return with(x: x, y: y)
+    }
+    
+    public func with(size size: CGSize) -> CGRect
     {
         return CGRect(origin: origin, size: size)
     }
     
-    public func with(# width: CGFloat, height: CGFloat) -> CGRect
+    public func with(width width: CGFloat, height: CGFloat) -> CGRect
     {
-        return with(size: CGSize(width, height))
+        return with(size: CGSize(width: width, height: height))
     }
     
-    public func with(# width: CGFloat) -> CGRect
+    public func with(width width: CGFloat) -> CGRect
     {
         return with(width: width, height: height)
     }
     
-    public func with(# height: CGFloat) -> CGRect
+    public func with(height height: CGFloat) -> CGRect
     {
         return with(width: width, height: height)
     }
     
-    public func with(# x: CGFloat, width: CGFloat) -> CGRect
+    public func with(x x: CGFloat, width: CGFloat) -> CGRect
     {
-        return CGRect(origin: CGPoint(x, y), size: CGSize(width, height))
+        return CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: width, height: height))
     }
     
-    public func with(# y: CGFloat, height: CGFloat) -> CGRect
+    public func with(y y: CGFloat, height: CGFloat) -> CGRect
     {
-        return CGRect(origin: CGPoint(x, y), size: CGSize(width, height))
+        return CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: width, height: height))
     }
     
     // MARK: inset
     
     public mutating func inset(by: CGFloat)
     {
-        inset(dx: by, dy: by)
+        insetInPlace(dx: by, dy: by)
     }
     
-    public mutating func inset(# dx: CGFloat)
+    public mutating func inset(dx dx: CGFloat)
     {
-        inset(dx: dx, dy: 0)
+        insetInPlace(dx: dx, dy: 0)
     }
     
-    public mutating func inset(# dy: CGFloat)
+    public mutating func inset(dy dy: CGFloat)
     {
-        inset(dx: 0, dy: dy)
+        insetInPlace(dx: 0, dy: dy)
     }
     
     public mutating func inset(top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0)
@@ -189,22 +195,22 @@ extension CGRect
         size.height = height - top - bottom
     }
     
-    public mutating func inset(# topLeft: CGSize)
+    public mutating func inset(topLeft topLeft: CGSize)
     {
-        inset(top: topLeft.height, left: topLeft.width)
+        inset(topLeft.height, left: topLeft.width, bottom: 0, right: 0)
     }
     
-    public mutating func inset(# topRight: CGSize)
+    public mutating func inset(topRight topRight: CGSize)
     {
-        inset(top: topRight.height, right: topRight.width)
+        inset(topRight.height, right: topRight.width, bottom: 0, left: 0)
     }
     
-    public mutating func inset(# bottomLeft: CGSize)
+    public mutating func inset(bottomLeft bottomLeft: CGSize)
     {
         inset(bottom: bottomLeft.height, left: bottomLeft.width)
     }
     
-    public mutating func inset(# bottomRight: CGSize)
+    public mutating func inset(bottomRight bottomRight: CGSize)
     {
         inset(bottom: bottomRight.height, right: bottomRight.width)
     }
@@ -215,49 +221,49 @@ extension CGRect
 {
     public var topLeft: CGPoint
         {
-        get { return CGPoint(left, top) }
+        get { return CGPoint(x: left, y: top) }
         set { left = newValue.x; top = newValue.y }
     }
     
     public var topCenter: CGPoint
         {
-        get { return CGPoint(centerX, top) }
+        get { return CGPoint(x: centerX, y: top) }
         set { centerX = newValue.x; top = newValue.y }
     }
     
     public var topRight: CGPoint
         {
-        get { return CGPoint(right, top) }
+        get { return CGPoint(x: right, y: top) }
         set { right = newValue.x; top = newValue.y }
     }
     
     public var centerLeft: CGPoint
         {
-        get { return CGPoint(left, centerY) }
+        get { return CGPoint(x: left, y: centerY) }
         set { left = newValue.x; centerY = newValue.y }
     }
     
     public var centerRight: CGPoint
         {
-        get { return CGPoint(right, centerY) }
+        get { return CGPoint(x: right, y: centerY) }
         set { right = newValue.x; centerY = newValue.y }
     }
     
     public var bottomLeft: CGPoint
         {
-        get { return CGPoint(left, bottom) }
+        get { return CGPoint(x: left, y: bottom) }
         set { left = newValue.x; bottom = newValue.y }
     }
     
     public var bottomCenter: CGPoint
         {
-        get { return CGPoint(centerX, bottom) }
+        get { return CGPoint(x: centerX, y: bottom) }
         set { centerX = newValue.x; bottom = newValue.y }
     }
     
     public var bottomRight: CGPoint
         {
-        get { return CGPoint(right, bottom) }
+        get { return CGPoint(x: right, y: bottom) }
         set { right = newValue.x; bottom = newValue.y }
     }
 }
@@ -270,7 +276,7 @@ extension CGRect
     {
         return bottom > rect.top
     }
-
+    
     public func isBelow(rect:CGRect) -> Bool
     {
         return top > rect.bottom
@@ -287,20 +293,20 @@ extension CGRect
     }
 }
 
-// MARK: Equatable
-
-extension CGRect: Equatable
-{
-    public func isEqualTo(rect:CGRect) -> Bool
-    {
-        return CGRectEqualToRect(self, rect)
-    }
-}
-
-public func == (r1: CGRect, r2: CGRect) -> Bool
-{
-    return CGRectEqualToRect(r1, r2)
-}
+//// MARK: Equatable
+//
+//extension CGRect: Equatable
+//{
+//  public func isEqualTo(rect:CGRect) -> Bool
+//  {
+//    return CGRectEqualToRect(self, rect)
+//  }
+//}
+//
+//public func == (r1: CGRect, r2: CGRect) -> Bool
+//{
+//  return CGRectEqualToRect(r1, r2)
+//}
 
 // MARK: Operators
 

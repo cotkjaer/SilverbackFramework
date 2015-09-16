@@ -10,19 +10,18 @@ import CoreData
 
 extension NSManagedObjectContext
 {
-    public convenience init?(modelName: String? = nil, inBundle: NSBundle? = nil, storeType: NSPersistentStoreType = .SQLite, error: NSErrorPointer = nil)
+    public convenience init(modelName: String? = nil, inBundle: NSBundle? = nil, storeType: NSPersistentStoreType = .SQLite) throws
     {
-        if let coordinator = NSPersistentStoreCoordinator(modelName:modelName, inBundle: inBundle ?? NSBundle.mainBundle(), storeType: storeType, error:error)
+        do
         {
-            self.init(persistentStoreCoordinator: coordinator)
+            let coordinator = try NSPersistentStoreCoordinator(modelName:modelName, inBundle: inBundle ?? NSBundle.mainBundle(), storeType: storeType)
             
-            return
+            self.init(persistentStoreCoordinator: coordinator)
         }
-        
-        // This needs to be here, or the compiler complains
-        self.init(concurrencyType: .MainQueueConcurrencyType)
-        
-        return nil
+        catch let error as NSError
+        {
+            throw error
+        }
     }
     
     public convenience init(
@@ -50,7 +49,7 @@ extension NSManagedObjectContext
     
     public func objectInChildContext<T: NSManagedObject>(object: T, concurrencyType: NSManagedObjectContextConcurrencyType? = nil) -> (NSManagedObjectContext, T)?
     {
-        if let registeredObject = objectRegisteredForID(object.objectID)
+        if let _ = objectRegisteredForID(object.objectID)
         {
             let context = NSManagedObjectContext(parentContext: self, concurrencyType: concurrencyType)
             
@@ -65,7 +64,7 @@ extension NSManagedObjectContext
     
     private func entityDescriptionFor<T: NSManagedObject>(type: T.Type) -> NSEntityDescription?
     {
-        if let entityDescription = NSEntityDescription.entityForName(type.baseName(), inManagedObjectContext: self)
+        if let entityDescription = NSEntityDescription.entityForName(type.baseClassName, inManagedObjectContext: self)
         {
             return entityDescription
         }
@@ -77,7 +76,7 @@ extension NSManagedObjectContext
     {
         if let entityDescription = self.entityDescriptionFor(type)
         {
-            return type(entity: entityDescription, insertIntoManagedObjectContext: self)
+            return type.init(entity: entityDescription, insertIntoManagedObjectContext: self)
         }
         
         return nil
@@ -85,13 +84,16 @@ extension NSManagedObjectContext
     
     private func executeFetchRequestLogErrors(request: NSFetchRequest) -> [AnyObject]?
     {
-        var error : NSError?
+        let result: [AnyObject]?
         
-        let result = self.executeFetchRequest(request, error: &error)
-        
-        if error != nil
+        do
         {
-            println("Error : \(error)")
+            result = try self.executeFetchRequest(request)
+        }
+        catch let error as NSError
+        {
+            debugPrint("Error : \(error)")
+            result = nil
         }
         
         return result
@@ -99,7 +101,7 @@ extension NSManagedObjectContext
 
     public func fetch<T: NSManagedObject>(type: T.Type, predicate:NSPredicate? = nil) -> [T]?
     {
-        let fetchRequest = NSFetchRequest(entityName: type.baseName())
+        let fetchRequest = NSFetchRequest(entityName: type.baseClassName)
 
         fetchRequest.predicate = predicate ?? NSPredicate(value: true)
         
@@ -121,7 +123,7 @@ extension NSManagedObjectContext
     {
         let fetchRequest = NSFetchRequest()
         fetchRequest.entity = self.entityDescriptionFor(type)
-        fetchRequest.predicate = predicate //NSPredicate(value: true)
+        fetchRequest.predicate = predicate
         fetchRequest.fetchLimit = 1
         
         if let result = self.executeFetchRequestLogErrors(fetchRequest) as? [T]
@@ -156,7 +158,7 @@ extension NSManagedObjectContext
         {
             for (key, value) in dictionary
             {
-                res.setValue(value, forKey: key)
+                (res as NSManagedObject).setValue(value, forKey: key)
             }
             
             return res

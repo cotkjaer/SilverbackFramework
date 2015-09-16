@@ -65,15 +65,15 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
         {
             if let fController = fetchedResultsController as NSFetchedResultsController!
             {
-                // perform initial model fetch
-                
-                if !fController.performFetch(&error)
+                do
                 {
-                    println("fetch error: \(error!.localizedDescription)")
-                }
-                else
-                {
+                    try fController.performFetch()
                     tableView.reloadData()
+                }
+                catch let e as NSError
+                {
+                    error = e
+                    debugPrint("fetch error: \(e.localizedDescription)")
                 }
             }
         }
@@ -112,7 +112,7 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
     
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        return tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        return tableView.dequeueReusableCellWithIdentifier(CellReuseIdentifier, forIndexPath: indexPath) 
     }
     
     public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
@@ -120,7 +120,7 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
         return fetchedResultsController?.sectionInfoForSection(section)?.name
     }
     
-    public override func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]!
+    public override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]?
     {
         return fetchedResultsController?.sectionIndexTitles ?? []
     }
@@ -151,9 +151,9 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
         case .Insert:
             tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
         case .Move:
-            println("Ignored Move of section \(sectionIndex)")
+            debugPrint("Ignored Move of section \(sectionIndex)")
         case .Update:
-            println("Ignored Update of section \(sectionIndex)")
+            debugPrint("Ignored Update of section \(sectionIndex)")
         }
     }
     
@@ -162,9 +162,19 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
         didChangeObject anObject: AnyObject,
         atIndexPath indexPath: NSIndexPath?,
         forChangeType type: NSFetchedResultsChangeType,
-        newIndexPath: NSIndexPath?
-        )
+        newIndexPath: NSIndexPath?)
     {
+//        <#code#>
+//    }
+//    
+//    public func controller(
+//        controller: NSFetchedResultsController,
+//        didChangeObject anObject: NSManagedObject,
+//        atIndexPath indexPath: NSIndexPath?,
+//        forChangeType type: NSFetchedResultsChangeType,
+//        newIndexPath: NSIndexPath?
+//        )
+//    {
         switch type
         {
         case .Delete where indexPath != nil:
@@ -177,7 +187,7 @@ public class CoreDataTableViewController: UITableViewController, NSFetchedResult
             tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
             
         default:
-            println("Bogus change of type \(type) with indexPath: \(indexPath) and \(newIndexPath)")
+            debugPrint("Bogus change of type \(type) with indexPath: \(indexPath) and \(newIndexPath)")
         }
     }
     

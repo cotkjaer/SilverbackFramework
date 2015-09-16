@@ -15,7 +15,7 @@ public let CGFloatZero = CGFloat(0.0)
 extension CGFloat
 {
     public func isEqualWithin(precision: CGFloat, to: CGFloat) -> Bool
-{
+    {
         return abs(self - to) < abs(precision)
     }
 }
@@ -59,13 +59,14 @@ public func /= (inout rhs: CGFloat, lhs: Int)
 
 public let π = CGFloat(M_PI)
 public let π2 = π * 2
+internal let sin60 : CGFloat = 0.866025403784439
 
 public extension CGFloat
 {
     /// Normalizes self to be in ]-π;π]
     public var normalizedRadians: CGFloat
-{
-        return self - ( ceil( self / π2 - 0.5 ) ) * π2
+        {
+            return self - ( ceil( self / π2 - 0.5 ) ) * π2
     }
 }
 
@@ -81,12 +82,12 @@ extension CGFloat
 {
     /**
     Create a random CGFloat
-    :param: lower bounds
-    :param: upper bounds
+    - parameter lower: bounds
+    - parameter upper: bounds
     :return: random number CGFloat
     */
-    public static func random(#lower: CGFloat, upper: CGFloat) -> CGFloat
-{
+    public static func random(lower lower: CGFloat, upper: CGFloat) -> CGFloat
+    {
         let r = CGFloat(arc4random(UInt32)) / CGFloat(UInt32.max)
         return (r * (upper - lower)) + lower
     }
@@ -95,7 +96,7 @@ extension CGFloat
 public extension CGFloat
 {
     public func format(format: String? = "") -> String
-{
+    {
         return String(format: "%\(format)f", self)
     }
 }

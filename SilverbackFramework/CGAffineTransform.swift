@@ -25,7 +25,7 @@ public func == (t1: CGAffineTransform, t2: CGAffineTransform) -> Bool
 
 // MARK: - DebugPrintable
 
-extension CGAffineTransform: DebugPrintable
+extension CGAffineTransform: CustomDebugStringConvertible
 {
     public var debugDescription: String
 {

@@ -32,8 +32,9 @@ class TestString: XCTestCase
     {
         XCTAssertNil("".uppercaseFirstLetter)
         XCTAssertNotNil("x".uppercaseFirstLetter)
-        XCTAssertEqual("x".uppercaseFirstLetter!, "X")
-        XCTAssertEqual("X".uppercaseFirstLetter!, "X")
-        XCTAssertEqual("1".uppercaseFirstLetter!, "1")
+        
+        XCTAssert("x".uppercaseFirstLetter == "X")
+        XCTAssert("X".uppercaseFirstLetter == "X")
+        XCTAssert("1".uppercaseFirstLetter == "1")
     }
 }

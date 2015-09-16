@@ -8,34 +8,77 @@
 
 import Foundation
 
+//MARK: - Nib
 public extension UIView
 {
-    //    @IBInspectable public var cornerRadius: CGFloat
-    //        {
-    //        set { layer.cornerRadius = max(0,newValue); layer.masksToBounds = layer.cornerRadius > 0 }
-    //        get { return layer.cornerRadius }
-    //    }
-    //
-    //    @IBInspectable public var borderWidth: CGFloat
-    //        {
-    //        set { layer.borderWidth = newValue }
-    //        get { return layer.borderWidth }
-    //    }
-    //
-    //    @IBInspectable public var borderColor: UIColor?
-    //        {
-    //        set { layer.borderColor = newValue?.CGColor }
-    //        get { return layer.borderColor != nil ? UIColor(CGColor: layer.borderColor) : nil }
-    //    }
+    public class func loadFromNibNamed(nibName: String, bundle: NSBundle?) -> UIView?
+    {
+        return UINib(
+            nibName: nibName,
+            bundle: bundle
+            ).instantiateWithOwner(nil, options: nil).first as? UIView
+    }
+}
+
+//MARK: - Hierarchy
+public extension UIView
+{
+    /**
+        Ascends the super-view hierarchy until a view of the specified type is encountered
     
+    - parameter type: the (super)type of superview to look for
+    - returns: the first superview encountered that is of the specified type
+    */
+    func closestSuperViewOfType<T where T: UIView>(type: T.Type) -> T?
+    {
+        var views : [UIView] = []
+        
+        for var view = superview; view != nil; view = view?.superview
+        {
+            views.append(view!)
+        }
+        
+        let ts = views.filter { $0 is T }
+        
+        return ts.first as? T
+    }
+    
+    /**
+    does a breadth-first search of the subviews hierarchy
+    
+    - parameter type: the (super)type of subviews to look for
+    - returns: an array of subviews of the specified type
+    */
+    func closestSubViewsOfType<T where T: UIView>(type: T.Type) -> [T]
+    {
+        
+        var views = subviews
+        
+        while !views.isEmpty
+        {
+            let ts = views.mapFilter({ $0 as? T})
+            
+            if !ts.isEmpty
+            {
+                return ts
+            }
+
+            views = views.reduce([], combine: { (subs, view) -> [UIView] in
+                return subs + view.subviews
+            })
+        }
+        
+        return []
+    }
 }
 
 //MARK: - Animations
+
 public extension UIView
 {
     func bounce()
     {
-        let options : UIViewAnimationOptions = .BeginFromCurrentState | .AllowUserInteraction
+        let options : UIViewAnimationOptions = [.BeginFromCurrentState, .AllowUserInteraction]
         
         transform = CGAffineTransformMakeScale(0.9, 0.9)
         
@@ -80,5 +123,6 @@ public extension UIView
         
         self.layer.addAnimation(animation, forKey: "popup")
     }
-    
 }
+
+

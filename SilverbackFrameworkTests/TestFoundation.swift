@@ -10,14 +10,4 @@ import XCTest
 
 class TestFoundation: XCTestCase
 {
-    func testUnwrap()
-    {
-        let int = 20
-        
-        XCTAssertEqual(unwrap(int, 10), 20)
-
-        let noInt : Int? = nil
-        
-        XCTAssertEqual(unwrap(noInt, 10), 10)
-    }
 }

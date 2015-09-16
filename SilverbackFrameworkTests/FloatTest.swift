@@ -39,9 +39,9 @@ class FloatTest: XCTestCase
     
     func testClamp()
     {
-        XCTAssertEqualWithAccuracy(Float(0.25).clamp(0, 0.50), Float(0.25), 0.001)
-        XCTAssertEqualWithAccuracy(Float(2).clamp(0, 0.50), Float(0.5), 0.001)
-        XCTAssertEqualWithAccuracy(Float(-2).clamp(0, 0.50), Float(0), 0.001)
+        XCTAssertEqualWithAccuracy(Float(0.25).clamp(0, 0.50), Float(0.25), accuracy: 0.001)
+        XCTAssertEqualWithAccuracy(Float(2).clamp(0, 0.50), Float(0.5), accuracy: 0.001)
+        XCTAssertEqualWithAccuracy(Float(-2).clamp(0, 0.50), Float(0), accuracy: 0.001)
     }
     
     func testRandom()

@@ -20,7 +20,7 @@ public func arc4random <T: IntegerLiteralConvertible> (type: T.Type) -> T
     return r
 }
 
-extension UInt64
+public extension UInt64
 {
     static func random(lower: UInt64 = min, upper: UInt64 = max) -> UInt64
     {
@@ -46,7 +46,7 @@ extension UInt64
     }
 }
 
-extension Int64
+public extension Int64
 {
     static func random(lower: Int64 = min, upper: Int64 = max) -> Int64
     {
@@ -65,7 +65,7 @@ extension Int64
     }
 }
 
-extension UInt32
+public extension UInt32
 {
     static func random(lower: UInt32 = min, upper: UInt32 = max) -> UInt32
     {
@@ -73,7 +73,7 @@ extension UInt32
     }
 }
 
-extension Int32
+public extension Int32
 {
     static func random(lower: Int32 = min, upper: Int32 = max) -> Int32
     {
@@ -82,29 +82,28 @@ extension Int32
     }
 }
 
-extension UInt
+public extension UInt
 {
     static func random(lower: UInt = min, upper: UInt = max) -> UInt
     {
-        switch (__WORDSIZE)
-        {
-        case 32: return UInt(UInt32.random(lower: UInt32(lower), upper: UInt32(upper)))
-        case 64: return UInt(UInt64.random(lower: UInt64(lower), upper: UInt64(upper)))
-        default: return lower
-        }
+//        switch (__WORDSIZE)
+//        {
+//        case 32: return UInt(UInt32.random(UInt32(lower), upper: UInt32(upper)))
+//        case 64:
+            return UInt(UInt64.random(UInt64(lower), upper: UInt64(upper)))
+//        }
     }
 }
-
 
 public extension Double
 {
     /**
     Create a random num Double
-    :param: lower number Double
-    :param: upper number Double
+    - parameter lower: number Double
+    - parameter upper: number Double
     :return: random number Double
     */
-    public static func random(#lower: Double, upper: Double) -> Double
+    public static func random(lower lower: Double, upper: Double) -> Double
     {
         let r = Double(arc4random(UInt64)) / Double(UInt64.max)
         return (r * (upper - lower)) + lower

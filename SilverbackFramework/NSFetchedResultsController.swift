@@ -10,31 +10,29 @@ import CoreData
 
 public extension NSFetchedResultsController
 {
-    var sectionInfos : [NSFetchedResultsSectionInfo]
-{ return (self.sections as? [NSFetchedResultsSectionInfo]) ?? [] }
+    var sectionInfos : [NSFetchedResultsSectionInfo] { return sections  ?? [] }
     
-    var numberOfSections : Int
-{ return sectionInfos.count }
+    var numberOfSections : Int { return sectionInfos.count }
     
     func numberOfItemsInSection(section: Int) -> Int
-{
+    {
         return numberOfObjectsInSection(section)
     }
     
     func numberOfRowsInSection(section: Int) -> Int
-{
+    {
         return numberOfObjectsInSection(section)
     }
     
     func numberOfObjectsInSection(section: Int) -> Int
-{
+    {
         return sectionInfoForSection(section)?.numberOfObjects ?? 0
     }
     
     func sectionInfoForSection(section: Int) -> NSFetchedResultsSectionInfo?
-{
+    {
         if section >= 0 && section < sectionInfos.count
-{
+        {
             return sectionInfos[section]
         }
         
