@@ -95,7 +95,6 @@ private let BitSizeOfInt = bitsizeof(Int)
 private let BitSizeOfByte = bitsizeof(UInt8)
 
 let UInt8BitOneMasks = Array<UInt8>(arrayLiteral: 0b10000000, 0b01000000, 0b00100000, 0b00010000, 0b00001000, 0b00000100, 0b00000010, 0b00000001)
-//let UInt8BitZeroMasks = Array<UInt8>(arrayLiteral: 0b01111111, 0b10111111, 0b11011111, 0b11101111, 0b11110111, 0b11111011, 0b11111101, 0b11111110)
 
 extension UInt8
 {

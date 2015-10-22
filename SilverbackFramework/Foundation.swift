@@ -73,32 +73,8 @@ public extension NSComparisonResult
     }
 }
 
-//public protocol VariableBytesCountConvertible : BytesConvertible
-//{
-//    static func bytesToReadInData(data: NSData, inout atLocation location: Int) -> Int
-//}
-
 public extension NSMutableData
 {
-//    func appendBytesConvertible<B:BytesConvertible>(bc: B)
-//    {
-//        var bytes = bc.bytes
-//        
-//        switch B.bytesCount
-//        {
-//        case .Fixed(let count):
-//            if count != bytes.count { debugPrint("strange mismatch in bytes produced vs. bytes to write") }
-//                
-//        case .VariableInt:
-//            appendInt(bc.bytes.count)
-//            
-//        case .VariableByte:
-//            appendByte(UInt8(bc.bytes.count & 0xFF))
-//        }
-//        
-//        appendBytes(&bytes, length: bytes.count)
-//    }
-    
     func appendString(string: String)
     {
         var buf = [UInt8](string.utf8)

@@ -77,14 +77,9 @@ extension BezierCurve : CustomDebugStringConvertible
 {
     public var debugDescription: String
         {
-            let formatter = NSNumberFormatter(numberStyle: .NoStyle)
+            let orderString = NSNumberFormatter(numberStyle: .OrdinalStyle).stringFromNumber(order) ?? "\(order)"
             
-            if #available(iOS 9.0, *)
-            {
-                formatter.numberStyle = .OrdinalStyle
-            }
-            
-            return formatter.stringFromNumber(order)! + " order Bézier curve with points \(points)"
+            return "\(orderString) order Bézier curve with points \(points)"
     }
 }
 

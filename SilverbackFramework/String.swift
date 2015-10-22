@@ -22,18 +22,6 @@ public extension String
             self = String(Array<Character>(count: padSize, repeatedValue: "0")) + self
         }
     }
-    
-//    init(_ number: UInt8, radix: Int, paddedToSize: Int)
-//    {
-//        self.init(number, radix: radix)
-//        
-//        let padSize = paddedToSize - self.characters.count
-//        
-//        if padSize > 0
-//        {
-//            self = String(Array<Character>(count: padSize, repeatedValue: "0")) + self
-//        }
-//    }
 }
 
 

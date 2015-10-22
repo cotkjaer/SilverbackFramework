@@ -40,11 +40,11 @@ public extension Set
         }
     }
     
-    public func any(@noescape check:((Element) -> Bool) = { _ in return true }) -> Element?
+    public func any(@noescape predicate:((Element) -> Bool) = { _ in return true }) -> Element?
     {
         for e in self
         {
-            if check(e) { return e }
+            if predicate(e) { return e }
         }
         
         return nil
