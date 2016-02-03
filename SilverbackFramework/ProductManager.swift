@@ -95,9 +95,7 @@ public class Product: Equatable, Hashable
             purchaseStatus = status
         }
     }
-    
-    //MARK: Hashable
-    
+        
     public func purchase() throws
     {
         switch purchaseStatus

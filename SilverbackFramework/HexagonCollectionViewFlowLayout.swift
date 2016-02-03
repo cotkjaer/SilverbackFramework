@@ -153,8 +153,6 @@ public class HexagonCollectionViewFlowLayout: UICollectionViewFlowLayout
             attributes.center = CGPoint(
                 x: ( ( (row * 0.75) * itemSize.width) + (0.5 * itemSize.width) + horiOffset),
                 y: ( (col * itemSize.height) + (0.5 * itemSize.height) + vertOffset) )
-            
-            
         }
         
         attributesCache[indexPath] = attributes
